@@ -1,0 +1,3 @@
+export const  LISTADO_MENSAJES= 'LISTADO_MENSAJES';
+export const  AGREGAR_M= 'AGREGAR_M';
+export const OBTENER_MENSAJES = 'OBTENER_MENSAJES'
