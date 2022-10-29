@@ -3,8 +3,9 @@ import {useState,useEffect} from "react";
 import Axios from "axios"
 import generalContext from '../contex/generalContext';
 import { useContext } from 'react';
-import Card from "./componentesChatbot/Card";
+//import Card from "./componentesChatbot/Card";
 import Mensajes from './componentesChatbot/Mensajes';
+import ListCards from "./componentesChatbot/ListCards";
 
 
 const Chatbot = () => {
@@ -60,7 +61,7 @@ agregarMensaje(conversation)
        
         try {
             
-          const response = await Axios.post('https://mysterious-bastion-07423.herokuapp.com/api/agent/text',paraenviarTexto)
+          const response = await Axios.post('https://b8cc-2800-200-f8c8-89c8-20a1-48c5-bb90-4a72.ngrok.io/api/agent/text',paraenviarTexto)
 
           for (let content of response.data.fulfillmentMessages) {
           //let content = response.data.fulfillmentMessages[0];
@@ -102,7 +103,7 @@ agregarMensaje(conversation)
        
         try {
             
-          const response = await Axios.post('https://mysterious-bastion-07423.herokuapp.com/api/agent/event',paraenviarEvento)
+          const response = await Axios.post('https://b8cc-2800-200-f8c8-89c8-20a1-48c5-bb90-4a72.ngrok.io/api/agent/event',paraenviarEvento)
 
           for (let content of response.data.fulfillmentMessages) {
          // let content = response.data.fulfillmentMessages[0];
@@ -154,11 +155,14 @@ agregarMensaje(conversation)
       
       chatCompleto.map((chat) => (
 
-        chat.content.card ?
-        ( <Card
+        chat.content.payload ?
+        ( 
+          
+        <ListCards
           key={chat.id}
-          card={chat}/>
-        
+          payload={chat}/>
+
+
         )
          :(
          <Mensajes
