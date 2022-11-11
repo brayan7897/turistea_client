@@ -1,12 +1,13 @@
 import {useReducer} from "react";
 import generalContext from "./generalContext";
 import generalReducer from "./generalReducer";
-import { AGREGAR_M } from "../types";
+import { AGREGAR_M, TOOGLE_MODAL } from "../types";
 import { v4 as uuidv4 } from 'uuid';
 const GeneralState = props =>{
 
 const initialState = {
   chatCompleto: [],
+  modal:false,
 }
 
 
@@ -21,11 +22,19 @@ const agregarMensaje = (mensaje)=>{
     })
 }
 
+const mostrarModal = ()=> {
+  dispatch({
+    type:TOOGLE_MODAL
+  })
+}
+
 return (
 	<generalContext.Provider
 	value = {{
 	  chatCompleto:state.chatCompleto,
-      agregarMensaje
+    modal:state.modal,
+      agregarMensaje,
+      mostrarModal
 	}}
 	>
 	{props.children}

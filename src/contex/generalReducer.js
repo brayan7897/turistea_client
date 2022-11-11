@@ -1,4 +1,4 @@
-import { AGREGAR_M } from "../types";
+import { AGREGAR_M, TOOGLE_MODAL } from "../types";
 
 export default (state,action)=>{
 
@@ -8,7 +8,12 @@ export default (state,action)=>{
             ...state,
             chatCompleto:[...state.chatCompleto,action.payload]
         }
-   
+    case TOOGLE_MODAL:
+        return{
+            ...state,
+             modal:!state.modal
+        }
+    
     default:
          return state;
     }

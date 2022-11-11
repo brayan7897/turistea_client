@@ -17,12 +17,13 @@ const {payload} = props;
     if (cards.length === 0) {
       return
     }
-  
+    
+    console.log(payload);
     console.log(cards)
 
 
 return(
-    <div className="h-80 flex gap-2 w-full overflow-x-auto">
+    <div className="h-80 flex gap-4 w-full overflow-x-auto static">
 {
 
 cards.map((card,i)=>(
@@ -30,6 +31,7 @@ cards.map((card,i)=>(
 <Card card = {card.structValue.fields}
 key={i}
 ></Card>
+
 )
 )
 }

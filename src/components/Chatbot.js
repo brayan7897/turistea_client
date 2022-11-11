@@ -6,6 +6,7 @@ import { useContext } from 'react';
 //import Card from "./componentesChatbot/Card";
 import Mensajes from './componentesChatbot/Mensajes';
 import ListCards from "./componentesChatbot/ListCards";
+import MapV from "./componentesChatbot/Map";
 
 
 const Chatbot = () => {
@@ -61,7 +62,7 @@ agregarMensaje(conversation)
        
         try {
             
-          const response = await Axios.post('https://b8cc-2800-200-f8c8-89c8-20a1-48c5-bb90-4a72.ngrok.io/api/agent/text',paraenviarTexto)
+          const response = await Axios.post('https://126e-2800-200-f8c8-89c8-3db9-6278-90a9-88b3.ngrok.io/api/agent/text',paraenviarTexto)
 
           for (let content of response.data.fulfillmentMessages) {
           //let content = response.data.fulfillmentMessages[0];
@@ -103,7 +104,7 @@ agregarMensaje(conversation)
        
         try {
             
-          const response = await Axios.post('https://b8cc-2800-200-f8c8-89c8-20a1-48c5-bb90-4a72.ngrok.io/api/agent/event',paraenviarEvento)
+          const response = await Axios.post('https://126e-2800-200-f8c8-89c8-3db9-6278-90a9-88b3.ngrok.io/api/agent/event',paraenviarEvento)
 
           for (let content of response.data.fulfillmentMessages) {
          // let content = response.data.fulfillmentMessages[0];
@@ -150,16 +151,18 @@ agregarMensaje(conversation)
 
         <section className={` bg-white h-full overflow-y-scroll no-scrollbar`}>
           
-          <ul className="relative grid p-4 gap-4" >
+          <ul className="relative grid  gap-2 p-2" >
  {
       
       chatCompleto.map((chat) => (
 
         chat.content.payload ?
         ( 
-          
+          chat.content.payload.fields.type.stringValue === 'carousel' ?
         <ListCards
           key={chat.id}
+          payload={chat}/>
+          :<MapV key={chat.id}
           payload={chat}/>
 
 
