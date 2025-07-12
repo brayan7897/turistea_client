@@ -1,25 +1,58 @@
 import React from "react";
-import bot from '../../assets/img/bot-conversacional.png'
+import FormattedText from "../FormattedText";
 
-function Mensajes(props){
-  
-    const {chat} = props;
+function Mensajes(props) {
+	const { chat } = props;
 
-    const  stylos = chat.who === 'bot' ? "flex max-w-[100%]  justify-self-start p-2 shadow-sm bg-colorm gap-4 rounded-t-2xl rounded-br-2xl break-words" : "max-w-[100%] justify-self-end p-2 bg-coloru rounded-l-2xl rounded-tr-2xl "
-    const vIcon = chat.who === 'bot' ? "bg-red-500 p-2 rounded-full border-4 border-red-200 " : "hidden"
+	// Verificar que el chat exista
+	if (!chat) {
+		return null;
+	}
 
-    return(
-     
-    <li key={chat.id} className={stylos}>
+	const stylos =
+		chat.who === "bot"
+			? "flex max-w-[90%] w-fit justify-self-start p-3 shadow-sm bg-colorm gap-3 rounded-t-2xl rounded-br-2xl break-words word-wrap"
+			: "flex max-w-[90%] w-fit justify-self-end p-3 bg-coloru rounded-l-2xl rounded-tr-2xl break-words word-wrap";
 
-        <div className={vIcon}>
-                <img className="w-8 object-cover" src={bot} alt="bot" />
-        </div>
+	const messageText = chat.content?.text?.text || "No hay mensaje disponible";
 
-    <span className="flex text-left text-sm px-2 text-colorb flex-nowrap ">{chat.content.text.text}</span>
-    </li>
-    
-  );
+	// Obtener las iniciales según quien escriba
+	const getInitials = () => {
+		if (chat.who === "bot") {
+			return "TR";
+		} else {
+			return "U"; // Iniciales del usuario, puedes cambiarlo por las iniciales reales del usuario
+		}
+	};
+
+	// Estilos para el círculo de iniciales
+	const circleStyles =
+		chat.who === "bot"
+			? "w-8 h-8 rounded-full bg-colorc2 text-colorb flex items-center justify-center text-xs font-bold flex-shrink-0"
+			: "w-8 h-8 rounded-full bg-colorc1 text-white flex items-center justify-center text-xs font-bold flex-shrink-0";
+
+	return (
+		<div key={chat.id} className={`${stylos} mb-3`}>
+			{chat.who === "bot" && (
+				<div className={circleStyles}>{getInitials()}</div>
+			)}
+			<div className="flex-1 min-w-0 overflow-hidden">
+				{chat.who === "bot" ? (
+					<FormattedText
+						text={messageText}
+						className="text-left text-sm text-coloro1 font-medium leading-relaxed"
+					/>
+				) : (
+					<span className="block text-left text-sm text-coloro1 font-medium leading-relaxed whitespace-pre-wrap break-words">
+						{messageText}
+					</span>
+				)}
+			</div>
+			{chat.who === "user" && (
+				<div className={circleStyles}>{getInitials()}</div>
+			)}
+		</div>
+	);
 }
 
 export default Mensajes;

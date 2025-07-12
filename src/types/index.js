@@ -1,3 +1,7 @@
-export const  LISTADO_MENSAJES= 'LISTADO_MENSAJES';
-export const  AGREGAR_M= 'AGREGAR_M';
-export const OBTENER_MENSAJES = 'OBTENER_MENSAJES'
+export const LISTADO_MENSAJES = "LISTADO_MENSAJES";
+export const AGREGAR_M = "AGREGAR_M";
+export const ELIMINAR_M = "ELIMINAR_M";
+export const OBTENER_MENSAJES = "OBTENER_MENSAJES";
+export const SET_LOADING = "SET_LOADING";
+export const SET_ERROR = "SET_ERROR";
+export const SET_LAST_CARDS_ADDED = "SET_LAST_CARDS_ADDED";

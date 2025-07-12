@@ -1,0 +1,332 @@
+{
+        "usuarios": {
+                "1": {
+                        "nombre": "Ana Huanuqueña",
+                        "correo": "ana@ejemplo.com",
+                        "ciudad": "Huánuco",
+                        "fecha_registro": "2025-05-10T09:15:00",
+                        "preferencias_generales": {
+                                "idioma": "es",
+                                "modoOscuro": false,
+                                "notificaciones": true
+                        }
+                }
+        },
+        "chats": {
+                "10": {
+                        "id_usuario": 1,
+                        "fecha_inicio": "2025-06-01T10:00:00",
+                        "fecha_fin": "2025-06-01T10:10:00",
+                        "estado": "cerrado",
+                        "contexto": "Buscando lugares turísticos en Huánuco"
+                }
+        },
+        "mensajes": {
+                "100": {
+                        "id_chat": 10,
+                        "emisor": "usuario",
+                        "contenido": "¿Qué sitios turísticos hay por aquí?",
+                        "timestamp": "2025-06-01T10:01:00",
+                        "intent": "buscar_turismo",
+                        "entidades_extraidas": {
+                                "ciudad": "Huánuco"
+                        }
+                },
+                "101": {
+                        "id_chat": 10,
+                        "emisor": "bot",
+                        "contenido": "Te recomiendo visitar el Complejo Arqueológico de Kotosh.",
+                        "timestamp": "2025-06-01T10:02:00",
+                        "intent": "recomendar_lugar",
+                        "entidades_extraidas": {
+                                "lugar": "Kotosh"
+                        }
+                }
+        },
+        "tipos_recomendacion": {
+                "1": {
+                        "nombre": "atraccion",
+                        "descripcion": "Lugares de interés turístico",
+                        "activo": true
+                }
+        },
+        "lugares": {
+                "200": {
+                        "nombre": "Complejo Arqueológico de Kotosh",
+                        "direccion": "Km 5 Oeste, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.92884205423662, -76.28053106393838",
+                        "tipo": "atraccion",
+                        "descripcion": "Kotosh es un sitio arqueológico ubicado a 5 km de la ciudad de Huánuco. Es famoso por el 'Templo de las Manos Cruzadas', una estructura ceremonial de más de 4,000 años de antigüedad. Este lugar representa una de las primeras manifestaciones de arquitectura religiosa en América.",
+                        "calificacion": 4.7,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Templo_Blanco_de_Kotosh_amb_l%27edifici_del_Templo_de_las_Manos_darrera03.jpg/1280px-Templo_Blanco_de_Kotosh_amb_l%27edifici_del_Templo_de_las_Manos_darrera03.jpg",
+                        "actividades": "Visitas guiadas, fotografía, estudio arqueológico",
+                        "consejos": "Mejor visitarlo en las mañanas. Llevar protector solar y agua.",
+                        "keywords": ["kotosh", "templo", "manos cruzadas", "arqueologico", "preinca"]
+                },
+                "201": {
+                        "nombre": "Plaza de Armas de Huánuco",
+                        "direccion": "Jr. Dos de Mayo, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.9305,-76.2390",
+                        "tipo": "atraccion",
+                        "descripcion": "La Plaza de Armas es el corazón de la ciudad de Huánuco. Rodeada de edificios coloniales y republicanos, alberga la Catedral y el Palacio Municipal. Es un lugar perfecto para conocer la historia y cultura local.",
+                        "calificacion": 4.6,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/4a/85/5e/dscf7752-snapseed-largejpg.jpg?w=1000&h=-1&s=1",
+                        "actividades": "Paseos, fotografía, eventos culturales, gastronomía",
+                        "consejos": "Ideal para visitar por las tardes. Hay muchos restaurantes y cafeterías alrededor.",
+                        "keywords": ["plaza de armas", "centro", "catedral", "huanuco", "colonial"]
+                },
+                "202": {
+                        "nombre": "Catedral de Huánuco (Señor de Burgos)",
+                        "direccion": "Jr. Dámaso Beraún 701",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.9306,-76.2400",
+                        "tipo": "atraccion",
+                        "descripcion": "Catedral moderna construida sobre templo de 1618. Importante centro religioso de la ciudad que alberga la imagen del Señor de Burgos, patrono de Huánuco.",
+                        "calificacion": 4.5,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hu%C3%A1nuco_Cathedral.jpg/330px-Hu%C3%A1nuco_Cathedral.jpg",
+                        "actividades": "Visitas religiosas, fotografía arquitectónica, eventos religiosos",
+                        "consejos": "Respetar los horarios de misa. Entrada gratuita.",
+                        "keywords": ["catedral", "señor de burgos", "iglesia", "religioso", "colonial"]
+                },
+                "203": {
+                        "nombre": "Puente Calicanto",
+                        "direccion": "Sobre río Huallaga, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.9320,-76.2380",
+                        "tipo": "atraccion",
+                        "descripcion": "Puente colonial construido en piedra y claras de huevo. Es un símbolo histórico de la ciudad y una muestra de la ingeniería colonial española en América.",
+                        "calificacion": 4.4,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Puente_Calicanto%2C_Hu%C3%A1nuco%2C_Per%C3%BA.jpg/330px-Puente_Calicanto%2C_Hu%C3%A1nuco%2C_Per%C3%BA.jpg",
+                        "actividades": "Fotografía, paseos, observación del río",
+                        "consejos": "Mejor visitarlo al atardecer. Cuidado con el tráfico vehicular.",
+                        "keywords": ["puente calicanto", "colonial", "rio huallaga", "historico", "piedra"]
+                },
+                "204": {
+                        "nombre": "Puma Ringri (Bella Durmiente)",
+                        "direccion": "Tingo María",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.2760,-75.9880",
+                        "tipo": "atraccion",
+                        "descripcion": "Una formación montañosa que vista desde cierta perspectiva semeja el perfil de una mujer durmiendo. Es uno de los íconos naturales más reconocidos de Tingo María y tiene varias leyendas locales asociadas.",
+                        "calificacion": 4.8,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Muntanya_la_Bella_Durmiente_entre_Tingo_Mar%C3%ADa_i_el_Parc_Nacional_de_Tingo_Mar%C3%ADa.jpg/1024px-Muntanya_la_Bella_Durmiente_entre_Tingo_Mar%C3%ADa_i_el_Parc_Nacional_de_Tingo_Mar%C3%ADa.jpg",
+                        "actividades": "Fotografía, mirador, trekking ligero, observación panorámica",
+                        "consejos": "Mejor vista desde el mirador principal. Ideal para el atardecer.",
+                        "keywords": ["bella durmiente", "puma ringri", "tingo maria", "montaña", "mirador"]
+                },
+                "205": {
+                        "nombre": "Cueva de las Lechuzas",
+                        "direccion": "Parque Nacional Tingo María",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.2800,-75.9900",
+                        "tipo": "atraccion",
+                        "descripcion": "Una impresionante cueva natural habitada por aves nocturnas llamadas guácharos (conocidas localmente como lechuzas). La cueva tiene formaciones rocosas espectaculares y un ecosistema único.",
+                        "calificacion": 4.7,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cueva_de_las_Lechuzas%2C_al_Parc_Nacional_de_Tingo_Mar%C3%ADa05.jpg/1024px-Cueva_de_las_Lechuzas%2C_al_Parc_Nacional_de_Tingo_Mar%C3%ADa05.jpg",
+                        "actividades": "Espeleología, observación de fauna, fotografía, ecoturismo",
+                        "consejos": "Usar linterna, calzado antideslizante y ropa que se pueda ensuciar.",
+                        "keywords": ["cueva de las lechuzas", "guacharos", "espeleologia", "tingo maria", "parque nacional"]
+                },
+                "206": {
+                        "nombre": "Casa Hacienda Shismay",
+                        "direccion": "Malconga, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.9500,-76.2000",
+                        "tipo": "atraccion",
+                        "descripcion": "Hacienda colonial convertida en museo y hospedaje. Muestra la vida rural tradicional de Huánuco y conserva arquitectura colonial bien preservada.",
+                        "calificacion": 4.3,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/56/08/69/casa-hacienda-shismay.jpg?w=1000&h=-1&s=1",
+                        "actividades": "Turismo rural, hospedaje, fotografía, museo",
+                        "consejos": "Reservar con anticipación para hospedaje. Ideal para turismo vivencial.",
+                        "keywords": ["shismay", "hacienda", "colonial", "museo", "turismo rural"]
+                },
+                "207": {
+                        "nombre": "Complejo Arqueológico de Garu",
+                        "direccion": "Choras, Yarowilca, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.4000,-76.5000",
+                        "tipo": "atraccion",
+                        "descripcion": "Centro preincaico de los Yarowilca declarado Patrimonio Cultural. Complejo arqueológico que muestra la influencia de diferentes culturas preincaicas en la región.",
+                        "calificacion": 4.2,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Garu_04380.jpg/1024px-Garu_04380.jpg",
+                        "actividades": "Turismo arqueológico, trekking, fotografía, investigación",
+                        "consejos": "Llevar guía local. Acceso por camino de herradura.",
+                        "keywords": ["garu", "yarowilca", "arqueologico", "preinca", "patrimonio"]
+                },
+                "208": {
+                        "nombre": "Lagunas de Pichgacocha",
+                        "direccion": "Provincia de Ambo, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.7500,-76.1600",
+                        "tipo": "atraccion",
+                        "descripcion": "https://www.ytuqueplanes.com/imagenes//fotos/ofertas/OFERTA%20-%20PRIMERA%20LAGUNA%20-%20High%20Tours.webp",
+                        "calificacion": 4.1,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lagunas_Pichgacocha.jpg/1200px-Lagunas_Pichgacocha.jpg",
+                        "actividades": "Pesca deportiva, paseos en bote, fotografía, camping",
+                        "consejos": "Llevar ropa de abrigo. Mejor época: mayo a septiembre.",
+                        "keywords": ["pichgacocha", "lagunas", "pesca", "ambo", "naturaleza"]
+                },
+                "209": {
+                        "nombre": "Tingo María - La Puerta de la Selva",
+                        "direccion": "Provincia de Leoncio Prado, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.2900,-75.9950",
+                        "tipo": "atraccion",
+                        "descripcion": "Tingo María es conocida como 'La Puerta de la Selva'. Ciudad que sirve como entrada a la selva peruana, famosa por su biodiversidad, clima tropical y atractivos naturales únicos.",
+                        "calificacion": 4.6,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://blog.redbus.pe/wp-content/uploads/2017/10/tingo-maria.jpeg",
+                        "actividades": "Ecoturismo, aventura, observación de flora y fauna, turismo gastronómico",
+                        "consejos": "Llevar repelente, ropa cómoda y cámara. El clima es tropical.",
+                        "keywords": ["tingo maria", "selva", "biodiversidad", "ecoturismo", "tropical"]
+                },
+                "210": {
+                        "nombre": "Laguna Lauricocha",
+                        "direccion": "Provincia de Lauricocha, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-10.3000,-76.8000",
+                        "tipo": "atraccion",
+                        "descripcion": "Hermosa laguna de origen glaciar ubicada a 4,200 msnm. Es considerada una de las fuentes del río Marañón y ofrece paisajes espectaculares de la cordillera andina.",
+                        "calificacion": 4.8,
+                        "url": "",
+                        "telefono": "",
+                        "activo": true,
+                        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Laguna_Lauricocha_07613.jpg/1024px-Laguna_Lauricocha_07613.jpg",
+                        "actividades": "Turismo de naturaleza, fotografía, pesca deportiva, trekking de altura",
+                        "consejos": "Llevar ropa de abrigo, el clima es muy frío. Aclimatarse gradualmente a la altura.",
+                        "keywords": ["laguna lauricocha", "glaciar", "altura", "marañon", "cordillera"]
+                }
+        },
+        "recomendaciones": {
+                "300": {
+                        "id_chat": 10,
+                        "id_tipo": 1,
+                        "titulo": "Visita a Kotosh",
+                        "descripcion": "Templo preincaico con manos cruzadas.",
+                        "fecha_generacion": "2025-06-01T10:02:00",
+                        "score_relevancia": 0.95,
+                        "metadatos": {
+                                "fuente": "web",
+                                "popularidad": "alta"
+                        }
+                }
+        },
+        "208": {
+                "nombre": "Lagunas de Pichgacocha",
+                "direccion": "Provincia de Ambo, Huánuco",
+                "ciudad": "Huánuco",
+                "coordenadas": "-9.7500,-76.1600",
+                "tipo": "atraccion",
+                "descripcion": "Conjunto de cinco lagunas para pesca y paseos en bote.",
+                "calificacion": 4.1,
+                "url": "",
+                "telefono": "",
+                "activo": true
+        },
+        "hoteles": {
+                "301": {
+                        "nombre": "Hotel Huánuco Plaza",
+                        "direccion": "Jr. Dos de Mayo 123, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.9305,-76.2395",
+                        "tipo": "hotel",
+                        "descripcion": "Hotel céntrico con wifi y desayuno incluido.",
+                        "calificacion": 4.0,
+                        "url": "",
+                        "telefono": "+51 62 321000",
+                        "activo": true
+                },
+                "302": {
+                        "nombre": "Hostal La Bella Durmiente",
+                        "direccion": "Tingo María, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.2780,-75.9890",
+                        "tipo": "hotel",
+                        "descripcion": "Hostal con vista a la montaña La Bella Durmiente.",
+                        "calificacion": 4.5,
+                        "url": "",
+                        "telefono": "+51 62 320000",
+                        "activo": true
+                },
+                "303": {
+                        "nombre": "Eco Lodge Pichgacocha",
+                        "direccion": "Ambo, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.7520,-76.1580",
+                        "tipo": "hotel",
+                        "descripcion": "Lodge ecológico junto a las lagunas de Pichgacocha.",
+                        "calificacion": 4.7,
+                        "url": "",
+                        "telefono": "+51 62 322000",
+                        "activo": true
+                }
+        },
+        "hoteles_detalle": {
+                "301": {
+                        "estrellas": 3,
+                        "precio_min": 40.0,
+                        "precio_max": 80.0,
+                        "servicios": [
+                                "wifi",
+                                "desayuno",
+                                "estacionamiento"
+                        ],
+                        "check_in": "13:00",
+                        "check_out": "11:00"
+                },
+                "302": {
+                        "estrellas": 2,
+                        "precio_min": 30.0,
+                        "precio_max": 60.0,
+                        "servicios": [
+                                "vista panorámica",
+                                "desayuno"
+                        ],
+                        "check_in": "14:00",
+                        "check_out": "10:00"
+                },
+                "303": {
+                        "estrellas": 4,
+                        "precio_min": 70.0,
+                        "precio_max": 150.0,
+                        "servicios": [
+                                "paseos en bote",
+                                "ecotours",
+                                "restaurante"
+                        ],
+                        "check_in": "12:00",
+                        "check_out": "11:00"
+                }
+        }
+}
