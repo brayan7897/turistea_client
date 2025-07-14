@@ -421,5 +421,4 @@ const Chatbot = () => {
 		</section>
 	);
 };
-
 export default Chatbot;

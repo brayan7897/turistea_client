@@ -103,5 +103,3 @@ const ListCards = () => {
 		</div>
 	);
 };
-
-export default ListCards;
