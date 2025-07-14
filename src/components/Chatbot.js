@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import generalContext from "../contex/generalContext";
 import MapContext from "../contex/mapContext";
 import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Mensajes from "./componentesChatbot/Mensajes";
 import ListCards from "./componentesChatbot/ListCards";
 import DynamicListCards from "./componentesChatbot/DynamicListCards";
 import QuickResponseBadges from "./componentesChatbot/QuickResponseBadges";
 import MapaCard from "./componentesChatbot/MapaCard";
 import MapaInteractivo from "./MapaInteractivo";
+import LocationConfig from "../services/locationConfig";
 import imgfondo from "../assets/img/imagenfondo1.svg";
 import imgfondo1450px from "../assets/img/imgturistea3.svg";
 import imgInicio from "../assets/img/Travelers-pana.png";
@@ -35,7 +37,11 @@ const Chatbot = () => {
 	} = mapContext;
 	const [mensaje, guardarMensaje] = useState({ texto: "" });
 	const [cerrarInicio, setCerrarInicio] = useState(false);
-	const [userLocation, setUserLocation] = useState(null);
+
+	// Ubicación por defecto en el centro de Huánuco (Plaza de Armas)
+	const defaultLocation = LocationConfig.getDefaultLocation();
+	const [userLocation, setUserLocation] = useState(defaultLocation);
+
 	const [quickResponses, setQuickResponses] = useState([]);
 	const [lastCardQuery, setLastCardQuery] = useState(null); // Para evitar duplicados
 	// Esta bandera evitará que los mensajes de ejemplo se carguen más de una vez
@@ -60,7 +66,7 @@ const Chatbot = () => {
 				who: "bot",
 				content: {
 					text: {
-						text: "¡Hola! Soy tu guía turístico virtual de Huánuco 🌟 \n\nPuedes preguntarme sobre lugares turísticos, actividades, recomendaciones y mucho más. También puedes usar los botones rápidos de abajo para obtener información inmediata.",
+						text: "¡Hola! Soy tu guía turístico virtual de Huánuco 🌟 \n\nEstoy configurado con tu ubicación en el centro de la ciudad para darte las mejores recomendaciones.\n\nPuedes preguntarme sobre lugares turísticos, actividades, recomendaciones y mucho más. También puedes usar los botones rápidos de abajo para obtener información inmediata.",
 					},
 				},
 			});
@@ -224,8 +230,16 @@ const Chatbot = () => {
 
 	// Función para manejar cambio de ubicación del usuario
 	const handleLocationChange = (location) => {
-		setUserLocation(location);
-		setMapUserLocation(location);
+		// Validar y usar ubicación válida o la por defecto
+		const validLocation = LocationConfig.getValidLocationOrDefault(
+			location?.lat,
+			location?.lng
+		);
+
+		setUserLocation(validLocation);
+		setMapUserLocation(validLocation);
+
+		console.log("📍 [DEBUG] Ubicación actualizada:", validLocation);
 	};
 
 	// Función para manejar información de ruta calculada
@@ -295,18 +309,34 @@ const Chatbot = () => {
 
 							// Si es un mensaje marcado como cards dinámicos, mostramos DynamicListCards
 							if (chat.isDynamicCardsMessage) {
-								// Combinar todos los tipos de lugares en un solo array
-								const allPlaces = [
-									...(chat.touristPlaces || []),
-									...(chat.hotels || []),
-									...(chat.restaurants || []),
-								];
+								// Con el nuevo sistema de filtros, solo un tipo debería tener datos
+								const touristPlaces = chat.touristPlaces || [];
+								const hotels = chat.hotels || [];
+								const restaurants = chat.restaurants || [];
 
-								if (allPlaces.length > 0) {
+								// Determinar qué tipo de cards mostrar basado en el contenido
+								if (hotels.length > 0) {
 									return (
 										<DynamicListCards
-											key={chat.id || index}
-											places={allPlaces}
+											key={`hotels-${chat.id || index}`}
+											places={hotels}
+											filterType="hotels"
+										/>
+									);
+								} else if (restaurants.length > 0) {
+									return (
+										<DynamicListCards
+											key={`restaurants-${chat.id || index}`}
+											places={restaurants}
+											filterType="restaurants"
+										/>
+									);
+								} else if (touristPlaces.length > 0) {
+									return (
+										<DynamicListCards
+											key={`places-${chat.id || index}`}
+											places={touristPlaces}
+											filterType="places"
 										/>
 									);
 								}
@@ -415,7 +445,7 @@ const Chatbot = () => {
 					</button>
 				</section>
 			</div>
-			<div className="z-20 max-[1450px]:hidden w-[400px] h-[500px]">
+			<div className="z-20 max-[1450px]:hidden m-7 w-[500px] h-[500px]">
 				<MapaInteractivo onLocationChange={setUserLocation} />
 			</div>
 		</section>

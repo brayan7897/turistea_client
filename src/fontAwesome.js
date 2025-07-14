@@ -65,6 +65,18 @@ import {
 	faDatabase,
 	faArrowRight,
 	faArrowLeft,
+
+	// Iconos para MapaInteractivo estilizado
+	faCrosshairs,
+	faCheckCircle,
+	faExpandArrowsAlt,
+	faSatellite,
+	faSearchPlus,
+	faMouse,
+	faExpand,
+	faShieldAlt,
+	faBolt,
+	faCog,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Agregar todos los iconos a la librería
@@ -132,5 +144,17 @@ library.add(
 	faMobileAlt,
 	faDatabase,
 	faArrowRight,
-	faArrowLeft
+	faArrowLeft,
+
+	// Mapa estilizado
+	faCrosshairs,
+	faCheckCircle,
+	faExpandArrowsAlt,
+	faSatellite,
+	faSearchPlus,
+	faMouse,
+	faExpand,
+	faShieldAlt,
+	faBolt,
+	faCog
 );

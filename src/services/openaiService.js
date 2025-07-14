@@ -3,6 +3,7 @@ import touristPlacesService from "./touristPlacesService";
 import unifiedExtractionService from "./unifiedExtractionService";
 import TextFormatter from "../utils/textFormatter";
 import ResponseFormatter from "../utils/responseFormatter";
+import LocationConfig from "./locationConfig";
 
 class OpenAIService {
 	constructor() {
@@ -10,38 +11,51 @@ class OpenAIService {
 		this.baseURL = "https://api.openai.com/v1";
 	}
 
-	// Método para enviar mensaje a GPT-3.5 Turbo
-	async sendMessage(message, conversationHistory = []) {
+	// Método para enviar mensaje a GPT-4o-mini
+	async sendMessage(message, conversationHistory = [], userLocation = null) {
 		try {
+			// Generar contexto de ubicación
+			const locationContext =
+				LocationConfig.generateLocationContext(userLocation);
+			console.log("📍 [DEBUG] Contexto de ubicación:", locationContext);
+
 			// Construir el array de mensajes incluyendo el historial
 			const messages = [
 				{
 					role: "system",
 					content: `Eres TuristeaBot, asistente turístico de Huánuco, Perú.
 
+UBICACIÓN DEL USUARIO: ${locationContext.context}
+COORDENADAS ACTUALES: ${locationContext.current.formatted}
+
 LUGARES TURÍSTICOS DISPONIBLES: [LUGAR:Kotosh], [LUGAR:Plaza de Armas], [LUGAR:Catedral], [LUGAR:Puente Calicanto], [LUGAR:Tingo María], [LUGAR:Cueva de las Lechuzas], [LUGAR:Bella Durmiente], [LUGAR:Yarowilca], [LUGAR:Laguna Lauricocha], [LUGAR:Carpish].
 
-HOTELES DISPONIBLES: [HOTEL:Gran Hotel Huánuco], [HOTEL:Hotel Majestic], [HOTEL:Hotel Los Portales], [HOTEL:Hotel Grand Palladium], [HOTEL:Hostal El Viajero].
+HOTELES DISPONIBLES: [HOTEL:Gran Hotel Huánuco], [HOTEL:Hotel Majestic], [HOTEL:Hotel Los Portales], [HOTEL:Hotel Villa Tingo], [HOTEL:Shushupe Hotel], [HOTEL:Grima Hotel], [HOTEL:Hospedaje El Cantaro II], [HOTEL:Cabañas del Bosque - Huamalíes], [HOTEL:Hostal Dos de Mayo Histórico], [HOTEL:Refugio Tomay Kichwa].
 
-RESTAURANTES DISPONIBLES: [RESTAURANTE:El Fogón de la Abuela], [RESTAURANTE:Pizzería Don Vito], [RESTAURANTE:Chifa Palacio de Oro], [RESTAURANTE:Restaurant El Huallaga], [RESTAURANTE:Café de la Plaza].
+RESTAURANTES DISPONIBLES: [RESTAURANTE:El Fogón de la Abuela], [RESTAURANTE:Pizzería Don Vito], [RESTAURANTE:Chifa Palacio de Oro], [RESTAURANTE:La Olla de Barro], [RESTAURANTE:Café Cultural Kotosh], [RESTAURANTE:Yuraq Wasi Restobar], [RESTAURANTE:Sazón de Huamalíes], [RESTAURANTE:El Mirador de Dos de Mayo].
 
 INSTRUCCIONES IMPORTANTES:
 - Respuestas CORTAS y CONCISAS (máximo 3-4 oraciones)
-- Cuando menciones lugares turísticos, usa el formato: [LUGAR:Nombre Exacto]
-- Cuando menciones hoteles, usa el formato: [HOTEL:Nombre Exacto]
-- Cuando menciones restaurantes, usa el formato: [RESTAURANTE:Nombre Exacto]
+- ANALIZA la consulta del usuario para responder EXACTAMENTE lo que pide
+- SOLO menciona lugares turísticos si pregunta por: sitios, lugares, atracciones, qué visitar, turismo
+- SOLO menciona hoteles si pregunta por: hospedaje, dormir, alojamiento, hoteles, donde quedarme
+- SOLO menciona restaurantes si pregunta por: comida, comer, restaurantes, gastronomía, donde comer
+- Usa identificadores SOLO cuando sea relevante: [LUGAR:Nombre], [HOTEL:Nombre], [RESTAURANTE:Nombre]
+- NO combines tipos si la pregunta es específica
 - Usa formato con saltos de línea para mejor legibilidad
-- Los detalles completos se mostrarán en los cards automáticamente
-- Sé directo y útil
+- Considera la ubicación del usuario para dar recomendaciones más precisas
 
-EJEMPLO CORRECTO:
-"Te recomiendo visitar [LUGAR:Kotosh], famoso por el Templo de las Manos Cruzadas. 
+EJEMPLOS CORRECTOS:
+Pregunta: "¿Qué lugares puedo visitar?"
+Respuesta: "Te recomiendo visitar [LUGAR:Kotosh], famoso por el Templo de las Manos Cruzadas, y [LUGAR:Tingo María] con sus hermosos paisajes naturales."
 
-Para hospedarte, [HOTEL:Gran Hotel Huánuco] está muy bien ubicado en el centro.
+Pregunta: "¿Dónde puedo hospedarme?"
+Respuesta: "Para hospedarte recomiendo [HOTEL:Gran Hotel Huánuco] en el centro de la ciudad o [HOTEL:Hotel Majestic] que tiene excelente servicio."
 
-Para comer, [RESTAURANTE:El Fogón de la Abuela] tiene los mejores platos típicos huanuqueños."
+Pregunta: "¿Dónde puedo comer?"
+Respuesta: "Para comer te sugiero [RESTAURANTE:El Fogón de la Abuela] con los mejores platos típicos o [RESTAURANTE:Café Cultural Kotosh] para una experiencia más cultural."
 
-IMPORTANTE: Siempre usa los identificadores [LUGAR:], [HOTEL:], [RESTAURANTE:] para que se muestren los cards correctos.`,
+CRÍTICO: Responde SOLO lo que el usuario pregunta. No agregues información no solicitada.`,
 				},
 				...conversationHistory,
 				{
@@ -53,10 +67,10 @@ IMPORTANTE: Siempre usa los identificadores [LUGAR:], [HOTEL:], [RESTAURANTE:] p
 			const response = await axios.post(
 				`${this.baseURL}/chat/completions`,
 				{
-					model: "gpt-3.5-turbo",
+					model: "gpt-4o-mini",
 					messages: messages,
 					max_tokens: 300,
-					temperature: 0.6,
+					temperature: 0.5,
 					top_p: 0.9,
 					frequency_penalty: 0.3,
 					presence_penalty: 0.3,
@@ -71,11 +85,17 @@ IMPORTANTE: Siempre usa los identificadores [LUGAR:], [HOTEL:], [RESTAURANTE:] p
 
 			const responseMessage = response.data.choices[0].message.content;
 
+			console.log("🤖 [DEBUG] Respuesta de GPT:", responseMessage);
+			console.log("🔍 [DEBUG] Pregunta del usuario:", message);
+
 			// Extraer todos los tipos de lugares ANTES de formatear la respuesta
 			const extractedPlaces =
 				unifiedExtractionService.extractAllFromText(responseMessage);
 			const shouldShowCards =
 				unifiedExtractionService.shouldShowAnyCards(responseMessage);
+
+			console.log("📊 [DEBUG] Lugares extraídos:", extractedPlaces);
+			console.log("🎯 [DEBUG] ¿Debe mostrar cards?:", shouldShowCards);
 
 			// Formatear la respuesta para mostrar al usuario (eliminar identificadores)
 			const formattedMessage =
@@ -125,10 +145,10 @@ IMPORTANTE: Siempre usa los identificadores [LUGAR:], [HOTEL:], [RESTAURANTE:] p
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					model: "gpt-3.5-turbo",
+					model: "gpt-4o-mini",
 					messages: messages,
 					max_tokens: 300,
-					temperature: 0.6,
+					temperature: 0.5,
 				}),
 			});
 
@@ -171,23 +191,14 @@ IMPORTANTE: Siempre usa los identificadores [LUGAR:], [HOTEL:], [RESTAURANTE:] p
 
 	// Método para generar respuestas con contexto turístico específico
 	async getTouristInfo(query, userLocation = null) {
-		let contextualMessage = query;
+		// Usar la ubicación por defecto si no se proporciona una
+		const finalLocation = userLocation || LocationConfig.getDefaultLocation();
+		const locationContext =
+			LocationConfig.generateLocationContext(finalLocation);
 
-		if (userLocation) {
-			contextualMessage = `El usuario se encuentra en las coordenadas ${userLocation.lat}, ${userLocation.lng}. ${query}`;
-		}
+		const contextualMessage = `${locationContext.context}. ${query}`;
 
-		const systemPrompt = `Eres TuristeaBot, un asistente turístico especializado en Huánuco, Perú. Tu objetivo es:
-    - Proporcionar información precisa sobre lugares turísticos
-    - Recomendar actividades y experiencias
-    - Ayudar con direcciones y ubicaciones
-    - Sugerir rutas turísticas
-    - Dar consejos prácticos para viajeros
-    
-    Si el usuario pregunta sobre su ubicación o mapas, menciona que puedes mostrarle un mapa interactivo.
-    Responde siempre en español de manera amigable y profesional.`;
-
-		return this.sendMessage(contextualMessage, [], systemPrompt);
+		return this.sendMessage(contextualMessage, [], finalLocation);
 	}
 }
 

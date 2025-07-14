@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test - Descripción Lugares</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-box { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Test - Descripción de Lugares</h1>
+    
+    <div class="debug-box success">
+        <h3>✅ Estado de los archivos modificados:</h3>
+        <ul>
+            <li><strong>PlaceCard.js:</strong> Agregado debug de descripción + mensaje fallback</li>
+            <li><strong>DynamicListCards.js:</strong> Debug de formateo de datos</li>
+            <li><strong>touristPlacesService.js:</strong> Mapeo de descripción verificado</li>
+        </ul>
+    </div>
+
+    <div class="debug-box warning">
+        <h3>🔧 Pasos para diagnosticar (ACTUALIZADO):</h3>
+        <ol>
+            <li>Ejecutar: <code>pnpm start</code></li>
+            <li>Abrir el chatbot en el navegador</li>
+            <li>Preguntar: "¿Qué lugares turísticos hay en Huánuco?"</li>
+            <li>Abrir la consola del navegador (F12)</li>
+            <li>Buscar los logs de debug que empiezan con:
+                <ul>
+                    <li><code>🏛️ [DEBUG] PlaceCard recibió:</code> - Datos originales del card</li>
+                    <li><code>🔍 [DEBUG] Todos los datos extraídos del card:</code> - Comparación raw vs procesado</li>
+                    <li><code>🏛️ [DEBUG] Datos formateados para PlaceCard:</code> - Datos después del formateo</li>
+                </ul>
+            </li>
+            <li>Hacer clic en una card de lugar para abrir el modal</li>
+            <li>Verificar qué datos aparecen correctamente y cuáles muestran mensajes de fallback</li>
+            <li><strong>IMPORTANTE:</strong> Los logs mostrarán qué datos están llegando como "raw" y cómo se procesan</li>
+        </ol>
+    </div>
+
+    <div class="debug-box">
+        <h3>📋 Ejemplos de datos de lugares del JSON:</h3>
+        <p><strong>Kotosh:</strong> "Kotosh es un sitio arqueológico ubicado a 5 km de la ciudad de Huánuco. Es famoso por el 'Templo de las Manos Cruzadas'..."</p>
+        <p><strong>Plaza de Armas:</strong> "La Plaza de Armas es el corazón de la ciudad de Huánuco. Rodeada de edificios coloniales y republicanos..."</p>
+        <p><strong>Catedral:</strong> "Catedral moderna construida sobre templo de 1618. Importante centro religioso de la ciudad..."</p>
+    </div>
+
+    <div class="debug-box error">
+        <h3>🚨 Posibles causas del problema:</h3>
+        <ul>
+            <li>Los datos no están llegando desde el servicio</li>
+            <li>El mapeo en touristPlacesService no está funcionando</li>
+            <li>El extractValue() no está extrayendo correctamente</li>
+            <li>Los logs de debug nos mostrarán exactamente dónde se pierde la información</li>
+        </ul>
+    </div>
+
+    <div class="debug-box success">
+        <h3>🎯 Soluciones implementadas en PlaceCard.js:</h3>
+        <ul>
+            <li><strong>Debug completo:</strong> Agregado logging detallado para todos los campos de datos</li>
+            <li><strong>Título:</strong> Fallback "Lugar sin nombre" si no hay título</li>
+            <li><strong>Dirección:</strong> Fallback "Dirección no disponible" en card y modal</li>
+            <li><strong>Descripción:</strong> Fallback "Información de descripción no disponible para este lugar."</li>
+            <li><strong>Coordenadas:</strong> Mensaje específico cuando no hay coordenadas GPS</li>
+            <li><strong>Actividades:</strong> Siempre se muestra la sección con fallback apropiado</li>
+            <li><strong>Consejos:</strong> Siempre se muestra la sección con fallback apropiado</li>
+            <li><strong>Logs de debug:</strong> Tracking completo de extracción de datos raw vs procesados</li>
+        </ul>
+    </div>
+</body>
+</html>

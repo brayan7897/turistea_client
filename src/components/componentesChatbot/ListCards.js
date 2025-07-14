@@ -1,4 +1,4 @@
-import Card from "./card";
+import CardSelector from "./CardSelector";
 
 const ListCards = () => {
 	// Cards de ejemplo con información completa
@@ -95,7 +95,13 @@ const ListCards = () => {
 			<div className="h-80 flex gap-2 w-full overflow-x-auto overflow-y-hidden no-scrollbar px-2 pb-2">
 				{cards.map((card, i) => {
 					if (card?.structValue?.fields) {
-						return <Card card={card.structValue.fields} key={i} />;
+						return (
+							<CardSelector
+								item={card.structValue.fields}
+								type="place"
+								key={i}
+							/>
+						);
 					}
 					return null;
 				})}

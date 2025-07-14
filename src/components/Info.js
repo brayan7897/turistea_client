@@ -9,10 +9,6 @@ const Info = () => {
 		<div className="bg-coloro1 w-[23.52%] ml-[7.77%] pt-[5%] max-[1450px]:w-[30%] max-[1200px]:w-[35%] max-[900px]:mb-[1rem] max-[500px]:ml-0 max-[500px]:pt-0 max-[500px]:w-full max-[500px]:text-center shadow-lg rounded-r-2xl">
 			{/* Header mejorado con icono */}
 			<div className="flex items-center gap-3 absolute top-6 left-[7.77%] max-[500px]:static max-[500px]:justify-center max-[500px]:mb-6">
-				<FontAwesomeIcon
-					icon="map-marked-alt"
-					className="text-colorp text-[2.5rem] max-[1450px]:text-[2rem] max-[500px]:text-[2rem] drop-shadow-md"
-				/>
 				<span className="text-colorp text-[3.153vw] font-bold max-[1450px]:text-[3.125rem] max-[900px]:text-[2.5rem] max-[500px]:text-[2rem] drop-shadow-sm">
 					Turistea
 				</span>
@@ -26,7 +22,7 @@ const Info = () => {
 				{/* Grid principal de características con animaciones mejoradas */}
 				<div className="grid grid-cols-1 gap-4">
 					{/* Tarjeta de información detallada */}
-					<div className="bg-gradient-to-br from-coloro2 to-colorwc rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:rotate-[0.5deg] p-5 border border-colorp/20 group">
+					<div className="bg-coloro1 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:rotate-[0.5deg] p-5 border border-colorp/20 group">
 						<div className="flex items-start gap-4">
 							<div className="flex-shrink-0 bg-coloro1 p-3 rounded-full shadow-md border-2 border-colorp group-hover:border-colorc2 transition-colors">
 								<img
@@ -41,7 +37,7 @@ const Info = () => {
 										icon="info-circle"
 										className="text-colorp text-base group-hover:animate-pulse"
 									/>
-									<h3 className="text-colorb font-bold text-base group-hover:text-coloro1 transition-colors">
+									<h3 className="text-colorb font-bold text-base group-hover:text-colorob transition-colors">
 										Información Detallada
 									</h3>
 								</div>
@@ -64,7 +60,7 @@ const Info = () => {
 					</div>
 
 					{/* Tarjeta de rutas */}
-					<div className="bg-gradient-to-br from-coloro2 to-colorwc rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:rotate-[-0.5deg] p-5 border border-colorp/20 group">
+					<div className="bg-coloro1 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:rotate-[-0.5deg] p-5 border border-colorp/20 group">
 						<div className="flex items-start gap-4">
 							<div className="flex-1 min-w-0">
 								<div className="flex items-center gap-2 mb-2">
@@ -72,7 +68,7 @@ const Info = () => {
 										icon="route"
 										className="text-colorp text-base group-hover:animate-pulse"
 									/>
-									<h3 className="text-colorb font-bold text-base group-hover:text-coloro1 transition-colors">
+									<h3 className="text-colorb font-bold text-base group-hover:text-colorob transition-colors">
 										Rutas Inteligentes
 									</h3>
 								</div>
@@ -107,7 +103,7 @@ const Info = () => {
 
 				{/* Grid de servicios adicionales */}
 				<div className="grid grid-cols-2 gap-3 max-[500px]:gap-2">
-					<div className="bg-coloro1 rounded-xl shadow-md p-4 max-[500px]:p-3 border border-colorwc hover:shadow-lg hover:border-colorp transition-all duration-300 group">
+					<div className="bg-colorb rounded-xl shadow-md p-4 max-[500px]:p-3 border border-colorwc hover:shadow-lg hover:border-colorp transition-all duration-300 group">
 						<div className="text-center">
 							<FontAwesomeIcon
 								icon="hotel"
@@ -122,7 +118,7 @@ const Info = () => {
 						</div>
 					</div>
 
-					<div className="bg-coloro1 rounded-xl shadow-md p-4 max-[500px]:p-3 border border-colorwc hover:shadow-lg hover:border-colorp transition-all duration-300 group">
+					<div className="bg-colorb rounded-xl shadow-md p-4 max-[500px]:p-3 border border-colorwc hover:shadow-lg hover:border-colorp transition-all duration-300 group">
 						<div className="text-center">
 							<FontAwesomeIcon
 								icon="utensils"
@@ -139,7 +135,7 @@ const Info = () => {
 				</div>
 
 				{/* Estadísticas mejoradas con efectos hover */}
-				<div className="bg-gradient-to-r from-colorwc to-colorm rounded-xl p-4 max-[500px]:p-3 border border-colorp/30 shadow-inner hover:shadow-lg transition-shadow">
+				<div className="bg-colorb rounded-xl p-4 max-[500px]:p-3 border border-colorp/30 shadow-inner hover:shadow-lg transition-shadow">
 					<div className="text-center mb-3">
 						<h4 className="text-coloro1 font-bold text-sm max-[500px]:text-xs flex items-center justify-center gap-2">
 							<FontAwesomeIcon

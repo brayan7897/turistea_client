@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Debug: Problema de Dirección en PlaceCard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .debug-section { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #007bff; }
+        .error { background: #f8d7da; border-left-color: #dc3545; }
+        .success { background: #d4edda; border-left-color: #28a745; }
+        .warning { background: #fff3cd; border-left-color: #ffc107; }
+        .flow-step { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        .data-flow { display: flex; align-items: center; margin: 10px 0; }
+        .arrow { margin: 0 10px; font-size: 20px; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug: Problema "Dirección no disponible" en PlaceCard</h1>
+
+    <div class="error">
+        <h2>🚨 Problema Identificado</h2>
+        <p><strong>Síntoma:</strong> El PlaceCard muestra "Dirección no disponible" aunque en <code>firebase-db.json</code> sí existe:</p>
+        <code>"direccion": "Km 5 Oeste, Huánuco"</code>
+        
+        <h3>🔍 Flujo de datos esperado:</h3>
+        <div class="data-flow">
+            <code>firebase-db.json</code>
+            <span class="arrow">→</span>
+            <code>touristPlacesService</code>
+            <span class="arrow">→</span>
+            <code>DynamicListCards</code>
+            <span class="arrow">→</span>
+            <code>PlaceCard</code>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>🛠️ Debug Agregado - Sistema de Rastreo Completo</h2>
+        
+        <div class="flow-step">
+            <h3>1. touristPlacesService.js</h3>
+            <ul>
+                <li>✅ <code>generateCardsFromResponse()</code> - Debug de entrada y salida</li>
+                <li>✅ <code>extractTouristPlaces()</code> - Debug de lugares extraídos y direcciones</li>
+                <li>✅ <code>placeToCardFormat()</code> - Debug de conversión de format</li>
+                <li>✅ Debug específico de dirección: <code>place.location → buttonUrl.stringValue</code></li>
+            </ul>
+        </div>
+
+        <div class="flow-step">
+            <h3>2. DynamicListCards.js (ya tenía debug)</h3>
+            <ul>
+                <li>✅ Debug de datos formateados para PlaceCard</li>
+                <li>✅ Debug de extracción de valores</li>
+            </ul>
+        </div>
+
+        <div class="flow-step">
+            <h3>3. PlaceCard.js (ya tenía debug)</h3>
+            <ul>
+                <li>✅ Debug completo de extracción de datos</li>
+                <li>✅ Debug específico de ubicación (<code>buttonUrl → buttonText</code>)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="warning">
+        <h2>🧪 Pasos para Diagnosticar</h2>
+        
+        <h3>1. Ejecutar el test:</h3>
+        <ol>
+            <li>Ejecutar: <code>pnpm start</code></li>
+            <li>Ir al chatbot en el navegador</li>
+            <li>Abrir la consola del navegador (F12)</li>
+            <li>Preguntar: <strong>"¿Qué lugares turísticos hay en Huánuco?"</strong></li>
+        </ol>
+        
+        <h3>2. Logs de debug a buscar (en orden):</h3>
+        <ol>
+            <li><code>🏛️ [DEBUG] generateCardsFromResponse input:</code> - Texto de entrada</li>
+            <li><code>🏛️ [DEBUG] extractTouristPlaces final result:</code> - Lugares encontrados</li>
+            <li><code>📍 [DEBUG] Direcciones extraídas:</code> - Array con direcciones específicas</li>
+            <li><code>🏛️ [DEBUG] touristPlacesService.placeToCardFormat input:</code> - Datos de entrada al formateo</li>
+            <li><code>📍 [DEBUG] Dirección específica:</code> - Mapeo dirección → buttonUrl</li>
+            <li><code>🏛️ [DEBUG] Datos formateados para PlaceCard:</code> - Resultado del DynamicListCards</li>
+            <li><code>🔍 [DEBUG] Todos los datos extraídos del card:</code> - Extracción final en PlaceCard</li>
+            <li><code>📍 [DEBUG] Ubicación en PlaceCard:</code> - buttonUrl → buttonText</li>
+        </ol>
+        
+        <h3>3. Qué verificar en cada log:</h3>
+        <ul>
+            <li><strong>Paso 3:</strong> ¿Tiene <code>location: "Km 5 Oeste, Huánuco"</code>?</li>
+            <li><strong>Paso 5:</strong> ¿<code>mapped_buttonUrl</code> contiene la dirección?</li>
+            <li><strong>Paso 6:</strong> ¿<code>buttonUrl.stringValue</code> tiene la dirección?</li>
+            <li><strong>Paso 8:</strong> ¿<code>buttonText</code> está vacío o tiene la dirección?</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h2>✅ Posibles Problemas y Soluciones</h2>
+        
+        <h3>Problema 1: No se encuentran lugares</h3>
+        <p><strong>Síntoma:</strong> <code>extractTouristPlaces final result: []</code></p>
+        <p><strong>Causa:</strong> El texto de la consulta no coincide con keywords o nombres</p>
+        <p><strong>Solución:</strong> Verificar keywords en firebase-db.json o usar lugares por defecto</p>
+        
+        <h3>Problema 2: Lugares sin dirección en la base de datos</h3>
+        <p><strong>Síntoma:</strong> <code>location: undefined</code> en extractTouristPlaces</p>
+        <p><strong>Causa:</strong> Error en buildPlacesDatabase() al mapear place.direccion</p>
+        <p><strong>Solución:</strong> Verificar que place.direccion existe en el JSON</p>
+        
+        <h3>Problema 3: Error en placeToCardFormat</h3>
+        <p><strong>Síntoma:</strong> <code>mapped_buttonUrl: ""</code> o undefined</p>
+        <p><strong>Causa:</strong> place.location está vacío</p>
+        <p><strong>Solución:</strong> Verificar el mapeo en el paso anterior</p>
+        
+        <h3>Problema 4: Error en DynamicListCards</h3>
+        <p><strong>Síntoma:</strong> <code>buttonUrl.stringValue: ""</code> en datos formateados</p>
+        <p><strong>Causa:</strong> No está pasando correctamente desde touristPlacesService</p>
+        <p><strong>Solución:</strong> Verificar que el servicio está generando correctamente las cards</p>
+        
+        <h3>Problema 5: Error en PlaceCard extracción</h3>
+        <p><strong>Síntoma:</strong> <code>buttonText: ""</code> aunque buttonUrl.stringValue tiene datos</p>
+        <p><strong>Causa:</strong> Error en la extracción ?.stringValue</p>
+        <p><strong>Solución:</strong> Verificar formato de card.buttonUrl</p>
+    </div>
+
+    <div class="debug-section">
+        <h2>📋 Datos de Referencia</h2>
+        
+        <h3>Ejemplo de lugar esperado (Kotosh):</h3>
+        <pre><code>{
+  "nombre": "Complejo Arqueológico de Kotosh",
+  "direccion": "Km 5 Oeste, Huánuco",
+  "ciudad": "Huánuco",
+  "coordenadas": "-9.92884205423662, -76.28053106393838",
+  "tipo": "atraccion",
+  "descripcion": "Kotosh es un sitio arqueológico ubicado a 5 km...",
+  "calificacion": 4.7
+}</code></pre>
+        
+        <h3>Formato esperado en PlaceCard:</h3>
+        <pre><code>{
+  title: { stringValue: "Complejo Arqueológico de Kotosh" },
+  buttonUrl: { stringValue: "Km 5 Oeste, Huánuco" },
+  subtitle: { stringValue: "Kotosh es un sitio arqueológico..." },
+  imageUrl: { stringValue: "https://upload.wikimedia.org/..." }
+}</code></pre>
+    </div>
+
+</body>
+</html>

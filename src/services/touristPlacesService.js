@@ -12,10 +12,16 @@ class TouristPlacesService {
 		const database = {};
 
 		Object.values(this.placesData).forEach((place) => {
+			console.log("🏗️ [DEBUG] buildPlacesDatabase procesando lugar:", {
+				nombre: place.nombre,
+				direccion: place.direccion,
+				direccion_type: typeof place.direccion,
+				direccion_length: place.direccion ? place.direccion.length : 0,
+			});
 			// Crear entradas para cada keyword del lugar
 			if (place.keywords && Array.isArray(place.keywords)) {
 				place.keywords.forEach((keyword) => {
-					database[keyword.toLowerCase()] = {
+					const mappedPlace = {
 						title: place.nombre,
 						description: place.descripcion,
 						location: place.direccion,
@@ -30,12 +36,22 @@ class TouristPlacesService {
 						tipo: place.tipo || "atraccion",
 						originalData: place,
 					};
+
+					console.log("🔗 [DEBUG] Mapeo por keyword:", {
+						keyword: keyword,
+						lugar: place.nombre,
+						direccion_original: place.direccion,
+						location_mapeado: mappedPlace.location,
+						match: place.direccion === mappedPlace.location,
+					});
+
+					database[keyword.toLowerCase()] = mappedPlace;
 				});
 			}
 
 			// También crear entrada con el nombre completo del lugar
 			const placeName = place.nombre.toLowerCase();
-			database[placeName] = {
+			const mappedPlaceByName = {
 				title: place.nombre,
 				description: place.descripcion,
 				location: place.direccion,
@@ -50,6 +66,16 @@ class TouristPlacesService {
 				tipo: place.tipo || "atraccion",
 				originalData: place,
 			};
+
+			console.log("📝 [DEBUG] Mapeo por nombre completo:", {
+				placeName: placeName,
+				lugar: place.nombre,
+				direccion_original: place.direccion,
+				location_mapeado: mappedPlaceByName.location,
+				match: place.direccion === mappedPlaceByName.location,
+			});
+
+			database[placeName] = mappedPlaceByName;
 		});
 
 		return database;
@@ -152,7 +178,18 @@ class TouristPlacesService {
 			}
 		}
 
-		return this.validateUniquesByName(uniquePlaces);
+		const finalPlaces = this.validateUniquesByName(uniquePlaces);
+		console.log("🏛️ [DEBUG] extractTouristPlaces final result:", finalPlaces);
+		console.log(
+			"📍 [DEBUG] Direcciones extraídas:",
+			finalPlaces.map((p) => ({
+				title: p.title,
+				location: p.location,
+				originalData: p.originalData?.direccion,
+			}))
+		);
+
+		return finalPlaces;
 	}
 
 	// Método auxiliar para validar lugares únicos por nombre
@@ -198,7 +235,12 @@ class TouristPlacesService {
 
 	// Convertir información de lugar a formato de card
 	placeToCardFormat(place) {
-		return {
+		console.log(
+			"🏛️ [DEBUG] touristPlacesService.placeToCardFormat input:",
+			place
+		);
+
+		const cardData = {
 			structValue: {
 				fields: {
 					title: { stringValue: place.title },
@@ -216,45 +258,75 @@ class TouristPlacesService {
 				},
 			},
 		};
+
+		console.log(
+			"🏛️ [DEBUG] touristPlacesService.placeToCardFormat output:",
+			cardData
+		);
+		console.log("📍 [DEBUG] Dirección específica:", {
+			original_direccion: place.location,
+			mapped_buttonUrl: cardData.structValue.fields.buttonUrl.stringValue,
+		});
+
+		return cardData;
 	}
 
 	// Generar cards desde respuesta de OpenAI
 	generateCardsFromResponse(openaiResponse) {
+		console.log("🏛️ [DEBUG] generateCardsFromResponse input:", openaiResponse);
 		const places = this.extractTouristPlaces(openaiResponse);
-		return places.map((place) => this.placeToCardFormat(place));
+		const cards = places.map((place) => this.placeToCardFormat(place));
+		console.log("🏛️ [DEBUG] generateCardsFromResponse output cards:", cards);
+		return cards;
 	}
 
 	// Detectar si una respuesta amerita mostrar cards
 	shouldShowCards(text) {
 		if (!text) return false;
 
-		// Palabras clave básicas que activan cards
-		const cardTriggerWords = [
-			"lugares",
-			"sitios",
-			"visitar",
-			"turísticos",
-			"destinos",
-			"atractivos",
-			"recomiendo",
-			"puedes ir",
-			"conocer",
-			"ver",
-		];
-
 		const normalizedText = text.toLowerCase();
-
-		// Verificar palabras clave básicas
-		const hasBasicTriggers = cardTriggerWords.some((word) =>
-			normalizedText.includes(word)
+		console.log(
+			"🏛️ [DEBUG] Evaluando lugares turísticos para:",
+			normalizedText
 		);
 
-		// Verificar si menciona alguno de los lugares específicos
+		// Verificar si hay identificadores específicos de lugares
+		const hasPlaceIdentifiers = /\[LUGAR:[^\]]+\]/gi.test(text);
+		if (hasPlaceIdentifiers) {
+			console.log("✅ [DEBUG] Encontrado identificador de lugar");
+			return true;
+		}
+
+		// Palabras clave MUY específicas para lugares turísticos (más restrictivo)
+		const specificTouristKeywords = [
+			"que lugares puedo visitar",
+			"lugares turísticos",
+			"sitios turísticos",
+			"qué visitar",
+			"lugares para visitar",
+			"atracciones turísticas",
+			"destinos turísticos",
+			"lugares de interés",
+			"sitios de interés",
+			"puntos turísticos",
+		];
+
+		const hasSpecificTouristKeywords = specificTouristKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
+		);
+
+		// Verificar si menciona alguno de los lugares específicos por nombre
 		const mentionsSpecificPlace = Object.keys(this.placesDatabase).some(
 			(place) => normalizedText.includes(place)
 		);
 
-		return hasBasicTriggers || mentionsSpecificPlace;
+		const shouldShow = hasSpecificTouristKeywords || mentionsSpecificPlace;
+		console.log("🏛️ [DEBUG] ¿Mostrar lugares turísticos?:", shouldShow, {
+			specificKeywords: hasSpecificTouristKeywords,
+			specificPlace: mentionsSpecificPlace,
+		});
+
+		return shouldShow;
 	}
 
 	// Agregar nuevo lugar a la base de datos (método mantenido para compatibilidad)

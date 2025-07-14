@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Análisis de Estructura de Datos para Cards</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .card-type { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #007bff; }
+        .place-card { border-left-color: #28a745; }
+        .hotel-card { border-left-color: #dc3545; }
+        .restaurant-card { border-left-color: #fd7e14; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        .data-table th, .data-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .data-table th { background-color: #f2f2f2; font-weight: bold; }
+        .missing { color: #dc3545; font-style: italic; }
+        .present { color: #28a745; font-weight: bold; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>📊 Análisis de Estructura de Datos para Cards</h1>
+
+    <div class="warning">
+        <h3>🔍 Resumen del Análisis</h3>
+        <p>He analizado ambos archivos JSON para entender cómo deberían renderizarse los datos en cada tipo de card:</p>
+        <ul>
+            <li><strong>firebase-db.json:</strong> Lugares turísticos (PlaceCard)</li>
+            <li><strong>hotels-restaurants.json:</strong> Hoteles y Restaurantes (HotelCard & RestaurantCard)</li>
+        </ul>
+    </div>
+
+    <!-- LUGARES TURÍSTICOS -->
+    <div class="card-type place-card">
+        <h2>🏛️ PlaceCard - Lugares Turísticos (firebase-db.json)</h2>
+        
+        <h3>📋 Estructura de datos disponibles:</h3>
+        <table class="data-table">
+            <tr>
+                <th>Campo JSON</th>
+                <th>Propiedad Card</th>
+                <th>Estado</th>
+                <th>Ejemplo</th>
+                <th>Uso en Card</th>
+            </tr>
+            <tr>
+                <td><code>nombre</code></td>
+                <td><code>title.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Complejo Arqueológico de Kotosh"</td>
+                <td>Título principal del card</td>
+            </tr>
+            <tr>
+                <td><code>descripcion</code></td>
+                <td><code>subtitle.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Kotosh es un sitio arqueológico ubicado a 5 km..."</td>
+                <td>Descripción en modal</td>
+            </tr>
+            <tr>
+                <td><code>direccion</code></td>
+                <td><code>buttonUrl.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Km 5 Oeste, Huánuco"</td>
+                <td>Ubicación en card y modal</td>
+            </tr>
+            <tr>
+                <td><code>imagen</code></td>
+                <td><code>imageUrl.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"https://upload.wikimedia.org/..."</td>
+                <td>Imagen del card</td>
+            </tr>
+            <tr>
+                <td><code>calificacion</code></td>
+                <td><code>rating.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>4.7</td>
+                <td>Estrellas y badge</td>
+            </tr>
+            <tr>
+                <td><code>coordenadas</code></td>
+                <td><code>coordinates.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"-9.92884205423662, -76.28053106393838"</td>
+                <td>Google Maps y navegación</td>
+            </tr>
+            <tr>
+                <td><code>ciudad</code></td>
+                <td><code>city.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Huánuco"</td>
+                <td>Badge de ciudad</td>
+            </tr>
+            <tr>
+                <td><code>actividades</code></td>
+                <td><code>activities.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Visitas guiadas, fotografía, estudio arqueológico"</td>
+                <td>Sección de actividades en modal</td>
+            </tr>
+            <tr>
+                <td><code>consejos</code></td>
+                <td><code>tips.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Mejor visitarlo en las mañanas. Llevar protector solar y agua."</td>
+                <td>Sección de consejos en modal</td>
+            </tr>
+            <tr>
+                <td><code>telefono</code></td>
+                <td><code>phone.stringValue</code></td>
+                <td class="missing">❌ Vacío en la mayoría</td>
+                <td>""</td>
+                <td>Información de contacto</td>
+            </tr>
+            <tr>
+                <td><code>url</code></td>
+                <td><code>website.stringValue</code></td>
+                <td class="missing">❌ Vacío en la mayoría</td>
+                <td>""</td>
+                <td>Sitio web</td>
+            </tr>
+            <tr>
+                <td><code>tipo</code></td>
+                <td><code>type.stringValue</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"atraccion"</td>
+                <td>Badge de tipo e icono</td>
+            </tr>
+        </table>
+
+        <div class="success">
+            <h4>✅ Estado: MUY BUENO</h4>
+            <p>Los lugares turísticos tienen datos completos y ricos. Todas las secciones principales del modal pueden mostrar información útil.</p>
+        </div>
+    </div>
+
+    <!-- HOTELES -->
+    <div class="card-type hotel-card">
+        <h2>🏨 HotelCard - Hoteles (hotels-restaurants.json)</h2>
+        
+        <h3>📋 Estructura de datos disponibles:</h3>
+        <table class="data-table">
+            <tr>
+                <th>Campo JSON</th>
+                <th>Propiedad Card</th>
+                <th>Estado</th>
+                <th>Ejemplo</th>
+                <th>Uso en Card</th>
+            </tr>
+            <tr>
+                <td><code>nombre</code></td>
+                <td><code>nombre</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Gran Hotel Huánuco"</td>
+                <td>Título principal del card</td>
+            </tr>
+            <tr>
+                <td><code>descripcion</code></td>
+                <td><code>descripcion</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Hotel de 4 estrellas ubicado en el centro histórico..."</td>
+                <td>Descripción en modal</td>
+            </tr>
+            <tr>
+                <td><code>direccion</code></td>
+                <td><code>direccion</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Jr. Dámaso Beraún 775, Huánuco"</td>
+                <td>Ubicación en card y modal</td>
+            </tr>
+            <tr>
+                <td><code>imagen</code></td>
+                <td><code>imagen</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"https://dynamic-media-cdn.tripadvisor.com/..."</td>
+                <td>Imagen del card</td>
+            </tr>
+            <tr>
+                <td><code>calificacion</code></td>
+                <td><code>calificacion</code></td>
+                <td class="present">✅ Presente</td>
+                <td>4.3</td>
+                <td>Estrellas y badge</td>
+            </tr>
+            <tr>
+                <td><code>coordenadas</code></td>
+                <td><code>coordenadas</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"-9.9295,-76.2405"</td>
+                <td>Google Maps y navegación</td>
+            </tr>
+            <tr>
+                <td><code>ciudad</code></td>
+                <td><code>ciudad</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Huánuco"</td>
+                <td>Badge de ciudad</td>
+            </tr>
+            <tr>
+                <td><code>actividades</code></td>
+                <td><code>actividades</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"WiFi gratuito, restaurante, bar, servicio de habitaciones, lavandería"</td>
+                <td>Sección de instalaciones en modal</td>
+            </tr>
+            <tr>
+                <td><code>consejos</code></td>
+                <td><code>consejos</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Reservar con anticipación en temporada alta. Incluye desayuno continental."</td>
+                <td>Sección de consejos en modal</td>
+            </tr>
+            <tr>
+                <td><code>telefono</code></td>
+                <td><code>telefono</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"+51 62 512-410"</td>
+                <td>Información de contacto</td>
+            </tr>
+            <tr>
+                <td><code>url</code></td>
+                <td><code>url</code></td>
+                <td class="present">⚠️ Algunos vacíos</td>
+                <td>"https://granhotelhuanuco.com"</td>
+                <td>Sitio web</td>
+            </tr>
+            <tr>
+                <td><code>precio_rango</code></td>
+                <td><code>precio_rango</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"$$$"</td>
+                <td>Badge de precio</td>
+            </tr>
+            <tr>
+                <td><code>servicios</code></td>
+                <td><code>servicios</code></td>
+                <td class="present">✅ Presente</td>
+                <td>["wifi", "desayuno", "restaurante", "bar", "lavanderia"]</td>
+                <td>Badges de servicios</td>
+            </tr>
+            <tr>
+                <td><code>destacado</code></td>
+                <td><code>destacado</code></td>
+                <td class="present">✅ Presente</td>
+                <td>true</td>
+                <td>Badge de destacado</td>
+            </tr>
+        </table>
+
+        <div class="success">
+            <h4>✅ Estado: EXCELENTE</h4>
+            <p>Los hoteles tienen datos muy completos, incluyendo campos específicos como servicios, precio_rango y destacado que los hacen muy ricos visualmente.</p>
+        </div>
+    </div>
+
+    <!-- RESTAURANTES -->
+    <div class="card-type restaurant-card">
+        <h2>🍽️ RestaurantCard - Restaurantes (hotels-restaurants.json)</h2>
+        
+        <h3>📋 Estructura de datos disponibles:</h3>
+        <table class="data-table">
+            <tr>
+                <th>Campo JSON</th>
+                <th>Propiedad Card</th>
+                <th>Estado</th>
+                <th>Ejemplo</th>
+                <th>Uso en Card</th>
+            </tr>
+            <tr>
+                <td><code>nombre</code></td>
+                <td><code>nombre</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"El Fogón de la Abuela"</td>
+                <td>Título principal del card</td>
+            </tr>
+            <tr>
+                <td><code>descripcion</code></td>
+                <td><code>descripcion</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Restaurante tradicional especializado en comida criolla huanuqueña..."</td>
+                <td>Descripción en modal</td>
+            </tr>
+            <tr>
+                <td><code>direccion</code></td>
+                <td><code>direccion</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Jr. General Prado 852, Huánuco"</td>
+                <td>Ubicación en card y modal</td>
+            </tr>
+            <tr>
+                <td><code>imagen</code></td>
+                <td><code>imagen</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"https://dynamic-media-cdn.tripadvisor.com/..."</td>
+                <td>Imagen del card</td>
+            </tr>
+            <tr>
+                <td><code>calificacion</code></td>
+                <td><code>calificacion</code></td>
+                <td class="present">✅ Presente</td>
+                <td>4.6</td>
+                <td>Estrellas y badge</td>
+            </tr>
+            <tr>
+                <td><code>coordenadas</code></td>
+                <td><code>coordenadas</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"-9.9285,-76.2425"</td>
+                <td>Google Maps y navegación</td>
+            </tr>
+            <tr>
+                <td><code>ciudad</code></td>
+                <td><code>ciudad</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Huánuco"</td>
+                <td>Badge de ciudad</td>
+            </tr>
+            <tr>
+                <td><code>actividades</code></td>
+                <td><code>actividades</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Comida criolla, platos típicos, ambiente familiar, música folclórica"</td>
+                <td>Sección de ambiente en modal</td>
+            </tr>
+            <tr>
+                <td><code>consejos</code></td>
+                <td><code>consejos</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"Probar el locro de gallina y la pachamanca. Ideal para almuerzo."</td>
+                <td>Sección de consejos en modal</td>
+            </tr>
+            <tr>
+                <td><code>telefono</code></td>
+                <td><code>telefono</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"+51 62 518-439"</td>
+                <td>Información de contacto</td>
+            </tr>
+            <tr>
+                <td><code>url</code></td>
+                <td><code>url</code></td>
+                <td class="missing">❌ Vacío en la mayoría</td>
+                <td>""</td>
+                <td>Sitio web</td>
+            </tr>
+            <tr>
+                <td><code>precio_rango</code></td>
+                <td><code>precio_rango</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"$$"</td>
+                <td>Badge de precio</td>
+            </tr>
+            <tr>
+                <td><code>cocina</code></td>
+                <td><code>especialidad</code></td>
+                <td class="present">✅ Presente</td>
+                <td>"criolla"</td>
+                <td>Badge de tipo de cocina</td>
+            </tr>
+            <tr>
+                <td><code>especialidades</code></td>
+                <td><code>especialidades</code></td>
+                <td class="present">✅ Presente</td>
+                <td>["locro de gallina", "pachamanca", "inchicapi"]</td>
+                <td>Lista de especialidades</td>
+            </tr>
+            <tr>
+                <td><code>destacado</code></td>
+                <td><code>destacado</code></td>
+                <td class="present">✅ Presente</td>
+                <td>true</td>
+                <td>Badge de destacado</td>
+            </tr>
+        </table>
+
+        <div class="success">
+            <h4>✅ Estado: EXCELENTE</h4>
+            <p>Los restaurantes tienen datos muy completos, incluyendo campos específicos como cocina, especialidades y destacado que permiten cards muy informativos.</p>
+        </div>
+    </div>
+
+    <!-- MEJORAS IMPLEMENTADAS -->
+    <div class="success">
+        <h2>🎯 Mejoras Implementadas para Renderizado de Cards</h2>
+        
+        <h3>1. DynamicListCards.js:</h3>
+        <ul>
+            <li>✅ <strong>Agregado campo especialidades:</strong> Para restaurantes ahora mapea correctamente <code>place.especialidades</code></li>
+            <li>✅ <strong>Función extractValue() mejorada:</strong> Maneja tanto formato stringValue como directo</li>
+            <li>✅ <strong>Debug completo:</strong> Logs detallados para rastrear mapeo de datos</li>
+        </ul>
+        
+        <h3>2. PlaceCard.js:</h3>
+        <ul>
+            <li>✅ <strong>Debug completo de extracción:</strong> Logs para todos los campos raw vs procesados</li>
+            <li>✅ <strong>Fallbacks mejorados:</strong> Mensajes informativos en lugar de espacios vacíos</li>
+            <li>✅ <strong>Validación de coordenadas:</strong> Manejo específico cuando no hay GPS</li>
+            <li>✅ <strong>Secciones siempre visibles:</strong> Actividades y consejos siempre se muestran</li>
+        </ul>
+        
+        <h3>3. RestaurantCard.js:</h3>
+        <ul>
+            <li>✅ <strong>Campo especialidades agregado:</strong> Extracción y renderizado de lista de especialidades</li>
+            <li>✅ <strong>Sección especialidades:</strong> Nueva sección visual con iconos para especialidades de la casa</li>
+            <li>✅ <strong>Debug de especialidades:</strong> Logs específicos para verificar datos de especialidades</li>
+        </ul>
+        
+        <h3>4. Verificaciones generales:</h3>
+        <ul>
+            <li>✅ <strong>Sin errores de compilación:</strong> Todos los archivos validados</li>
+            <li>✅ <strong>Estructura de datos normalizada:</strong> Mapeo consistente entre tipos de card</li>
+            <li>✅ <strong>Sistema de debug robusto:</strong> Logs en cada nivel del flujo de datos</li>
+        </ul>
+    </div>
+    <div class="error">
+        <h2>🚨 Problemas Identificados en el Renderizado</h2>
+        
+        <h3>1. Diferencia en formato de datos:</h3>
+        <ul>
+            <li><strong>PlaceCard:</strong> Espera formato <code>{stringValue: "valor"}</code></li>
+            <li><strong>HotelCard/RestaurantCard:</strong> Esperan formato directo <code>"valor"</code></li>
+        </ul>
+        
+        <h3>2. Mapeo inconsistente:</h3>
+        <ul>
+            <li>Los lugares turísticos usan <code>direccion → buttonUrl.stringValue</code></li>
+            <li>Los hoteles/restaurantes usan <code>direccion → direccion</code> directamente</li>
+        </ul>
+        
+        <h3>3. Campos con datos limitados:</h3>
+        <ul>
+            <li><strong>Lugares turísticos:</strong> <code>telefono</code> y <code>url</code> están vacíos</li>
+            <li><strong>Restaurantes:</strong> <code>url</code> está vacío en la mayoría</li>
+        </ul>
+    </div>
+
+    <!-- SOLUCIONES RECOMENDADAS -->
+    <div class="success">
+        <h2>💡 Soluciones Recomendadas</h2>
+        
+        <h3>1. Mejorar función extractValue() en DynamicListCards.js:</h3>
+        <p>La función ya existe, pero debe manejar mejor los casos donde los datos están vacíos.</p>
+        
+        <h3>2. Validaciones en cada Card:</h3>
+        <ul>
+            <li>Mostrar mensajes apropiados cuando falten datos específicos</li>
+            <li>Ocultar secciones cuando no hay información relevante</li>
+            <li>Usar placeholders informativos</li>
+        </ul>
+        
+        <h3>3. Normalización de datos:</h3>
+        <p>El DynamicListCards.js debe convertir todos los datos al formato esperado por cada tipo de card.</p>
+    </div>
+
+    <!-- PRUEBAS ESPECÍFICAS ACTUALIZADAS -->
+    <div class="warning">
+        <h2>🧪 Pruebas Específicas para Verificar Renderizado</h2>
+        
+        <h3>1. Lugares Turísticos:</h3>
+        <ul>
+            <li><strong>Consulta:</strong> "¿Qué lugares turísticos hay en Huánuco?"</li>
+            <li><strong>Verificar:</strong>
+                <ul>
+                    <li>Títulos: "Complejo Arqueológico de Kotosh", "Plaza de Armas de Huánuco"</li>
+                    <li>Descripciones: Textos largos y detallados en modal</li>
+                    <li>Direcciones: "Km 5 Oeste, Huánuco", "Jr. Dos de Mayo, Huánuco"</li>
+                    <li>Coordenadas: Permiten abrir Google Maps</li>
+                    <li>Actividades y consejos: Siempre visibles con contenido o fallback</li>
+                </ul>
+            </li>
+            <li><strong>Debug logs esperados:</strong> 🏛️, 🔍, 📝</li>
+        </ul>
+        
+        <h3>2. Hoteles:</h3>
+        <ul>
+            <li><strong>Consulta:</strong> "¿Qué hoteles hay en Huánuco?"</li>
+            <li><strong>Verificar:</strong>
+                <ul>
+                    <li>Títulos: "Gran Hotel Huánuco", "Hotel Majestic"</li>
+                    <li>Precios: "$$$", "$$" con colores apropiados</li>
+                    <li>Servicios: Badges como "WiFi", "Desayuno", "Restaurante"</li>
+                    <li>Destacados: Badge "Destacado" en hotels con destacado: true</li>
+                    <li>Contacto: Teléfonos clickeables, sitios web (cuando disponibles)</li>
+                </ul>
+            </li>
+            <li><strong>Debug logs esperados:</strong> 🏨</li>
+        </ul>
+        
+        <h3>3. Restaurantes:</h3>
+        <ul>
+            <li><strong>Consulta:</strong> "¿Qué restaurantes hay en Huánuco?"</li>
+            <li><strong>Verificar:</strong>
+                <ul>
+                    <li>Títulos: "El Fogón de la Abuela", "Pizzería Don Vito"</li>
+                    <li>Especialidades: <strong>NUEVA SECCIÓN</strong> - "locro de gallina", "pachamanca", "pizza margherita"</li>
+                    <li>Tipo de cocina: "criolla", "italiana", "chifa"</li>
+                    <li>Precios: "$", "$$" con colores apropiados</li>
+                    <li>Descripciones: Detalles sobre ambiente y comida</li>
+                </ul>
+            </li>
+            <li><strong>Debug logs esperados:</strong> 🍽️, 🍝</li>
+        </ul>
+        
+        <h3>4. Verificación de debug completo:</h3>
+        <ol>
+            <li>Abrir consola del navegador (F12)</li>
+            <li>Hacer cualquiera de las consultas anteriores</li>
+            <li>Buscar logs de debug con emojis específicos</li>
+            <li>Verificar que los datos "raw" vs "procesados" coincidan</li>
+            <li>Confirmar que no hay campos undefined o null inesperados</li>
+        </ol>
+    </div>
+
+</body>
+</html>

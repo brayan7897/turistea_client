@@ -59,6 +59,8 @@ class UnifiedExtractionService {
 		const foundHotelNames = new Set();
 		const normalizedText = text.toLowerCase();
 
+		console.log("🏨 [DEBUG] Buscando hoteles en texto:", text);
+
 		// Primero buscar identificadores específicos [HOTEL:Nombre]
 		const hotelIdentifierRegex = /\[HOTEL:([^\]]+)\]/gi;
 		let match;
@@ -66,63 +68,85 @@ class UnifiedExtractionService {
 			const hotelName = match[1].trim();
 			const normalizedHotelName = hotelName.toLowerCase();
 
-			// Buscar el hotel en los datos
-			const hotelData = Object.values(this.hotelsData).find(
-				(hotel) =>
-					hotel.nombre.toLowerCase() === normalizedHotelName && hotel.activo
+			console.log(
+				"🔍 [DEBUG] Identificador encontrado:",
+				hotelName,
+				"→",
+				normalizedHotelName
 			);
 
-			if (hotelData && !foundHotelNames.has(normalizedHotelName)) {
-				foundHotelNames.add(normalizedHotelName);
+			// Buscar el hotel en los datos (búsqueda más flexible)
+			const hotelData = Object.values(this.hotelsData).find((hotel) => {
+				const dbHotelName = hotel.nombre.toLowerCase();
+				const isExactMatch = dbHotelName === normalizedHotelName;
+				const isPartialMatch =
+					dbHotelName.includes(normalizedHotelName) ||
+					normalizedHotelName.includes(dbHotelName);
+
+				console.log(
+					"🏨 [DEBUG] Comparando:",
+					dbHotelName,
+					"con",
+					normalizedHotelName,
+					"| Exacto:",
+					isExactMatch,
+					"| Parcial:",
+					isPartialMatch
+				);
+
+				return (isExactMatch || isPartialMatch) && hotel.activo;
+			});
+
+			if (hotelData && !foundHotelNames.has(hotelData.nombre.toLowerCase())) {
+				console.log("✅ [DEBUG] Hotel encontrado:", hotelData.nombre);
+				foundHotelNames.add(hotelData.nombre.toLowerCase());
 				hotels.push(nearbyService.enrichHotelData(hotelData));
+			} else {
+				console.log("❌ [DEBUG] Hotel NO encontrado para:", hotelName);
 			}
 		}
 
 		// Si ya encontramos hoteles con identificadores, retornar solo esos
 		if (hotels.length > 0) {
+			console.log(
+				"🎯 [DEBUG] Retornando hoteles por identificador:",
+				hotels.length
+			);
 			return nearbyService.validateUniqueEstablishments(hotels);
 		}
 
-		// Buscar menciones específicas de hoteles por keywords solo si no hay identificadores
-		for (const [keyword, hotelData] of Object.entries(this.hotelKeywords)) {
-			if (normalizedText.includes(keyword)) {
-				const hotelName = hotelData.nombre.toLowerCase();
+		// Si no hay identificadores pero el usuario pregunta por hoteles, mostrar destacados
+		const hotelQuestionKeywords = [
+			"donde puedo hospedarme",
+			"donde quedarme",
+			"donde dormir",
+			"hoteles",
+			"hotel",
+			"hospedaje",
+			"alojamiento",
+		];
 
-				if (!foundHotelNames.has(hotelName) && hotelData.activo) {
-					foundHotelNames.add(hotelName);
-					hotels.push(nearbyService.enrichHotelData(hotelData));
-				}
-			}
-		}
+		const isAskingForHotels = hotelQuestionKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
+		);
 
-		// Buscar palabras clave generales de hoteles solo si no hay hoteles específicos
-		if (hotels.length === 0) {
-			const generalHotelKeywords = [
-				"hotel",
-				"hoteles",
-				"hospedaje",
-				"alojamiento",
-				"donde quedarme",
-				"dormir",
-				"hostal",
-				"pensión",
-			];
-
-			const hasGeneralHotelKeywords = generalHotelKeywords.some((keyword) =>
-				normalizedText.includes(keyword)
+		if (isAskingForHotels) {
+			console.log(
+				"🏨 [DEBUG] Usuario pregunta por hoteles, mostrando destacados"
 			);
+			const featuredHotels = Object.values(this.hotelsData)
+				.filter((hotel) => hotel.activo && hotel.destacado)
+				.slice(0, 3)
+				.map((hotel) => nearbyService.enrichHotelData(hotel));
 
-			if (hasGeneralHotelKeywords) {
-				const featuredHotels = Object.values(this.hotelsData)
-					.filter((hotel) => hotel.activo && hotel.destacado)
-					.slice(0, 3)
-					.map((hotel) => nearbyService.enrichHotelData(hotel));
-
-				return nearbyService.validateUniqueEstablishments(featuredHotels);
-			}
+			return nearbyService.validateUniqueEstablishments(featuredHotels);
 		}
 
-		return nearbyService.validateUniqueEstablishments(hotels.slice(0, 4));
+		// NO buscar por keywords ni palabras generales si no pregunta específicamente
+		console.log(
+			"❌ [DEBUG] No se encontraron identificadores de hoteles ni preguntas específicas"
+		);
+		return [];
 	}
 
 	// Extraer restaurantes mencionados en el texto
@@ -133,6 +157,8 @@ class UnifiedExtractionService {
 		const foundRestaurantNames = new Set();
 		const normalizedText = text.toLowerCase();
 
+		console.log("🍽️ [DEBUG] Buscando restaurantes en texto:", text);
+
 		// Primero buscar identificadores específicos [RESTAURANTE:Nombre]
 		const restaurantIdentifierRegex = /\[RESTAURANTE:([^\]]+)\]/gi;
 		let match;
@@ -140,104 +166,262 @@ class UnifiedExtractionService {
 			const restaurantName = match[1].trim();
 			const normalizedRestaurantName = restaurantName.toLowerCase();
 
-			// Buscar el restaurante en los datos
+			console.log(
+				"🔍 [DEBUG] Identificador encontrado:",
+				restaurantName,
+				"→",
+				normalizedRestaurantName
+			);
+
+			// Buscar el restaurante en los datos (búsqueda más flexible)
 			const restaurantData = Object.values(this.restaurantsData).find(
-				(restaurant) =>
-					restaurant.nombre.toLowerCase() === normalizedRestaurantName &&
-					restaurant.activo
+				(restaurant) => {
+					const dbRestaurantName = restaurant.nombre.toLowerCase();
+					const isExactMatch = dbRestaurantName === normalizedRestaurantName;
+					const isPartialMatch =
+						dbRestaurantName.includes(normalizedRestaurantName) ||
+						normalizedRestaurantName.includes(dbRestaurantName);
+
+					console.log(
+						"🍽️ [DEBUG] Comparando:",
+						dbRestaurantName,
+						"con",
+						normalizedRestaurantName,
+						"| Exacto:",
+						isExactMatch,
+						"| Parcial:",
+						isPartialMatch
+					);
+
+					return (isExactMatch || isPartialMatch) && restaurant.activo;
+				}
 			);
 
 			if (
 				restaurantData &&
-				!foundRestaurantNames.has(normalizedRestaurantName)
+				!foundRestaurantNames.has(restaurantData.nombre.toLowerCase())
 			) {
-				foundRestaurantNames.add(normalizedRestaurantName);
+				console.log(
+					"✅ [DEBUG] Restaurante encontrado:",
+					restaurantData.nombre
+				);
+				foundRestaurantNames.add(restaurantData.nombre.toLowerCase());
 				restaurants.push(nearbyService.enrichRestaurantData(restaurantData));
+			} else {
+				console.log(
+					"❌ [DEBUG] Restaurante NO encontrado para:",
+					restaurantName
+				);
 			}
 		}
 
 		// Si ya encontramos restaurantes con identificadores, retornar solo esos
 		if (restaurants.length > 0) {
+			console.log(
+				"🎯 [DEBUG] Retornando restaurantes por identificador:",
+				restaurants.length
+			);
 			return nearbyService.validateUniqueEstablishments(restaurants);
 		}
 
-		// Buscar menciones específicas de restaurantes por keywords solo si no hay identificadores
-		for (const [keyword, restaurantData] of Object.entries(
-			this.restaurantKeywords
-		)) {
-			if (normalizedText.includes(keyword)) {
-				const restaurantName = restaurantData.nombre.toLowerCase();
+		// Si no hay identificadores pero el usuario pregunta por restaurantes, mostrar destacados
+		const restaurantQuestionKeywords = [
+			"donde puedo comer",
+			"donde comer",
+			"donde almorzar",
+			"donde cenar",
+			"restaurantes",
+			"restaurante",
+			"comida",
+			"comer",
+			"gastronomía",
+		];
 
-				if (
-					!foundRestaurantNames.has(restaurantName) &&
-					restaurantData.activo
-				) {
-					foundRestaurantNames.add(restaurantName);
-					restaurants.push(nearbyService.enrichRestaurantData(restaurantData));
-				}
-			}
-		}
+		const isAskingForRestaurants = restaurantQuestionKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
+		);
 
-		// Buscar palabras clave generales de restaurantes solo si no hay restaurantes específicos
-		if (restaurants.length === 0) {
-			const generalRestaurantKeywords = [
-				"restaurante",
-				"restaurantes",
-				"comida",
-				"comer",
-				"donde comer",
-				"almorzar",
-				"cenar",
-				"cocina",
-				"gastronomía",
-				"gastronomy",
-				"platos típicos",
-				"comida típica",
-			];
-
-			const hasGeneralRestaurantKeywords = generalRestaurantKeywords.some(
-				(keyword) => normalizedText.includes(keyword)
+		if (isAskingForRestaurants) {
+			console.log(
+				"🍽️ [DEBUG] Usuario pregunta por restaurantes, mostrando destacados"
 			);
+			const featuredRestaurants = Object.values(this.restaurantsData)
+				.filter((restaurant) => restaurant.activo && restaurant.destacado)
+				.slice(0, 4)
+				.map((restaurant) => nearbyService.enrichRestaurantData(restaurant));
 
-			if (hasGeneralRestaurantKeywords) {
-				const featuredRestaurants = Object.values(this.restaurantsData)
-					.filter((restaurant) => restaurant.activo && restaurant.destacado)
-					.slice(0, 4)
-					.map((restaurant) => nearbyService.enrichRestaurantData(restaurant));
-
-				return nearbyService.validateUniqueEstablishments(featuredRestaurants);
-			}
+			return nearbyService.validateUniqueEstablishments(featuredRestaurants);
 		}
 
-		return nearbyService.validateUniqueEstablishments(restaurants.slice(0, 4));
+		// NO buscar por keywords ni palabras generales si no pregunta específicamente
+		console.log(
+			"❌ [DEBUG] No se encontraron identificadores de restaurantes ni preguntas específicas"
+		);
+		return [];
 	}
 
-	// Extraer todos los tipos de lugares del texto
+	// Extraer todos los tipos de lugares del texto con filtro de prioridad
 	extractAllFromText(text) {
 		if (!text) return { touristPlaces: [], hotels: [], restaurants: [] };
+
+		console.log("🔍 [DEBUG] Iniciando extracción con filtro de tipo único");
 
 		const touristPlaces = touristPlacesService.extractTouristPlaces(text);
 		const hotels = this.extractHotelsFromText(text);
 		const restaurants = this.extractRestaurantsFromText(text);
 
+		console.log("📊 [DEBUG] Resultados iniciales:", {
+			touristPlaces: touristPlaces.length,
+			hotels: hotels.length,
+			restaurants: restaurants.length,
+		});
+
+		// FILTRO: Solo mostrar UN tipo de establecimiento a la vez
+		// Prioridad: 1. Identificadores específicos, 2. Hoteles, 3. Restaurantes, 4. Lugares turísticos
+
+		// Prioridad 1: Si hay identificadores específicos en el texto, mostrar solo ese tipo
+		const hasHotelIdentifiers = /\[HOTEL:[^\]]+\]/gi.test(text);
+		const hasRestaurantIdentifiers = /\[RESTAURANTE:[^\]]+\]/gi.test(text);
+		const hasPlaceIdentifiers = /\[LUGAR:[^\]]+\]/gi.test(text);
+
+		if (hasHotelIdentifiers && hotels.length > 0) {
+			console.log("🏨 [DEBUG] Filtro: Solo hoteles por identificadores");
+			return {
+				touristPlaces: [],
+				hotels: hotels,
+				restaurants: [],
+				hasAnyPlaces: hotels.length > 0,
+				filterType: "hotels",
+			};
+		}
+
+		if (hasRestaurantIdentifiers && restaurants.length > 0) {
+			console.log("🍽️ [DEBUG] Filtro: Solo restaurantes por identificadores");
+			return {
+				touristPlaces: [],
+				hotels: [],
+				restaurants: restaurants,
+				hasAnyPlaces: restaurants.length > 0,
+				filterType: "restaurants",
+			};
+		}
+
+		if (hasPlaceIdentifiers && touristPlaces.length > 0) {
+			console.log(
+				"🏛️ [DEBUG] Filtro: Solo lugares turísticos por identificadores"
+			);
+			return {
+				touristPlaces: touristPlaces,
+				hotels: [],
+				restaurants: [],
+				hasAnyPlaces: touristPlaces.length > 0,
+				filterType: "places",
+			};
+		}
+
+		// Prioridad 2: Si no hay identificadores, pero el usuario pregunta específicamente
+		const normalizedText = text.toLowerCase();
+
+		// Detectar preguntas específicas por hoteles
+		const hotelQuestionKeywords = [
+			"donde puedo hospedarme",
+			"donde quedarme",
+			"donde dormir",
+			"hoteles",
+			"hotel",
+			"hospedaje",
+			"alojamiento",
+		];
+
+		const isAskingForHotels = hotelQuestionKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
+		);
+
+		if (isAskingForHotels && hotels.length > 0) {
+			console.log("🏨 [DEBUG] Filtro: Solo hoteles por pregunta específica");
+			return {
+				touristPlaces: [],
+				hotels: hotels,
+				restaurants: [],
+				hasAnyPlaces: hotels.length > 0,
+				filterType: "hotels",
+			};
+		}
+
+		// Detectar preguntas específicas por restaurantes
+		const restaurantQuestionKeywords = [
+			"donde puedo comer",
+			"donde comer",
+			"donde almorzar",
+			"donde cenar",
+			"restaurantes",
+			"restaurante",
+			"comida",
+			"comer",
+			"gastronomía",
+		];
+
+		const isAskingForRestaurants = restaurantQuestionKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
+		);
+
+		if (isAskingForRestaurants && restaurants.length > 0) {
+			console.log(
+				"🍽️ [DEBUG] Filtro: Solo restaurantes por pregunta específica"
+			);
+			return {
+				touristPlaces: [],
+				hotels: [],
+				restaurants: restaurants,
+				hasAnyPlaces: restaurants.length > 0,
+				filterType: "restaurants",
+			};
+		}
+
+		// Prioridad 3: Solo lugares turísticos (por defecto)
+		if (touristPlaces.length > 0) {
+			console.log("🏛️ [DEBUG] Filtro: Solo lugares turísticos por defecto");
+			return {
+				touristPlaces: touristPlaces,
+				hotels: [],
+				restaurants: [],
+				hasAnyPlaces: touristPlaces.length > 0,
+				filterType: "places",
+			};
+		}
+
+		// Si no hay nada, retornar vacío
+		console.log(
+			"❌ [DEBUG] Filtro: No se encontró ningún tipo de establecimiento"
+		);
 		return {
-			touristPlaces,
-			hotels,
-			restaurants,
-			hasAnyPlaces:
-				touristPlaces.length > 0 || hotels.length > 0 || restaurants.length > 0,
+			touristPlaces: [],
+			hotels: [],
+			restaurants: [],
+			hasAnyPlaces: false,
+			filterType: "none",
 		};
 	}
 
-	// Determinar si debe mostrar cards basado en el contenido
+	// Determinar si debe mostrar cards basado en el contenido (con filtro)
 	shouldShowAnyCards(text) {
 		if (!text) return false;
 
-		const touristShouldShow = touristPlacesService.shouldShowCards(text);
-		const hotelsShouldShow = this.shouldShowHotelCards(text);
-		const restaurantsShouldShow = this.shouldShowRestaurantCards(text);
+		console.log("🎯 [DEBUG] Evaluando si mostrar cards para:", text);
 
-		return touristShouldShow || hotelsShouldShow || restaurantsShouldShow;
+		// Usar la lógica de extracción con filtro para determinar si mostrar cards
+		const extractedPlaces = this.extractAllFromText(text);
+		const shouldShow = extractedPlaces.hasAnyPlaces;
+
+		console.log("📊 [DEBUG] Resultado del filtro:", {
+			filterType: extractedPlaces.filterType,
+			shouldShow: shouldShow,
+			places: extractedPlaces.touristPlaces.length,
+			hotels: extractedPlaces.hotels.length,
+			restaurants: extractedPlaces.restaurants.length,
+		});
+
+		return shouldShow;
 	}
 
 	// Determinar si debe mostrar cards de hoteles
@@ -245,30 +429,36 @@ class UnifiedExtractionService {
 		if (!text) return false;
 
 		const normalizedText = text.toLowerCase();
+		console.log("🏨 [DEBUG] Evaluando hoteles para:", normalizedText);
 
-		// Palabras clave que activan cards de hoteles
-		const hotelTriggerWords = [
-			"hotel",
+		// Verificar identificadores específicos de hoteles
+		const hasHotelIdentifiers = /\[HOTEL:[^\]]+\]/gi.test(text);
+		if (hasHotelIdentifiers) {
+			console.log("✅ [DEBUG] Encontrado identificador de hotel");
+			return true;
+		}
+
+		// Detectar cuando el usuario pregunta específicamente por hoteles
+		const hotelQuestionKeywords = [
+			"donde puedo hospedarme",
+			"donde quedarme",
+			"donde dormir",
 			"hoteles",
+			"hotel",
 			"hospedaje",
 			"alojamiento",
-			"donde quedarme",
-			"dormir",
-			"hostal",
-			"pensión",
+			"reservar hotel",
+			"busco hotel",
+			"quiero hospedarme",
+			"necesito alojamiento",
 		];
 
-		// Verificar palabras clave generales
-		const hasHotelTriggers = hotelTriggerWords.some((word) =>
-			normalizedText.includes(word)
+		const isAskingForHotels = hotelQuestionKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
 		);
 
-		// Verificar si menciona algún hotel específico
-		const mentionsSpecificHotel = Object.keys(this.hotelKeywords).some(
-			(keyword) => normalizedText.includes(keyword)
-		);
-
-		return hasHotelTriggers || mentionsSpecificHotel;
+		console.log("🏨 [DEBUG] ¿Pregunta por hoteles?:", isAskingForHotels);
+		return isAskingForHotels;
 	}
 
 	// Determinar si debe mostrar cards de restaurantes
@@ -276,39 +466,47 @@ class UnifiedExtractionService {
 		if (!text) return false;
 
 		const normalizedText = text.toLowerCase();
+		console.log("🍽️ [DEBUG] Evaluando restaurantes para:", normalizedText);
 
-		// Palabras clave que activan cards de restaurantes
-		const restaurantTriggerWords = [
-			"restaurante",
+		// Verificar identificadores específicos de restaurantes
+		const hasRestaurantIdentifiers = /\[RESTAURANTE:[^\]]+\]/gi.test(text);
+		if (hasRestaurantIdentifiers) {
+			console.log("✅ [DEBUG] Encontrado identificador de restaurante");
+			return true;
+		}
+
+		// Detectar cuando el usuario pregunta específicamente por restaurantes
+		const restaurantQuestionKeywords = [
+			"donde puedo comer",
+			"donde comer",
+			"donde almorzar",
+			"donde cenar",
 			"restaurantes",
+			"restaurante",
 			"comida",
 			"comer",
-			"donde comer",
-			"almorzar",
-			"cenar",
-			"cocina",
+			"busco restaurante",
+			"quiero comer",
+			"necesito comer",
 			"gastronomía",
-			"gastronomy",
 			"platos típicos",
 			"comida típica",
 		];
 
-		// Verificar palabras clave generales
-		const hasRestaurantTriggers = restaurantTriggerWords.some((word) =>
-			normalizedText.includes(word)
+		const isAskingForRestaurants = restaurantQuestionKeywords.some((keyword) =>
+			normalizedText.includes(keyword)
 		);
 
-		// Verificar si menciona algún restaurante específico
-		const mentionsSpecificRestaurant = Object.keys(
-			this.restaurantKeywords
-		).some((keyword) => normalizedText.includes(keyword));
-
-		return hasRestaurantTriggers || mentionsSpecificRestaurant;
+		console.log(
+			"🍽️ [DEBUG] ¿Pregunta por restaurantes?:",
+			isAskingForRestaurants
+		);
+		return isAskingForRestaurants;
 	}
 
-	// Generar mensaje combinado para la respuesta del bot
+	// Generar mensaje combinado para la respuesta del bot (con filtro)
 	generateCombinedCardsMessage(extracted) {
-		const { touristPlaces, hotels, restaurants } = extracted;
+		const { touristPlaces, hotels, restaurants, filterType } = extracted;
 		const totalPlaces =
 			touristPlaces.length + hotels.length + restaurants.length;
 
@@ -316,32 +514,56 @@ class UnifiedExtractionService {
 			return null;
 		}
 
-		let message = "Información detallada";
-		const parts = [];
+		// Mensaje específico según el tipo filtrado
+		switch (filterType) {
+			case "hotels":
+				return `Información detallada de ${hotels.length} hotel${
+					hotels.length > 1 ? "es" : ""
+				} recomendado${hotels.length > 1 ? "s" : ""}`;
 
-		if (touristPlaces.length > 0) {
-			parts.push(
-				`${touristPlaces.length} lugar${
+			case "restaurants":
+				return `Información detallada de ${restaurants.length} restaurante${
+					restaurants.length > 1 ? "s" : ""
+				} recomendado${restaurants.length > 1 ? "s" : ""}`;
+
+			case "places":
+				return `Información detallada de ${touristPlaces.length} lugar${
 					touristPlaces.length > 1 ? "es" : ""
-				} turístico${touristPlaces.length > 1 ? "s" : ""}`
-			);
-		}
+				} turístico${touristPlaces.length > 1 ? "s" : ""} recomendado${
+					touristPlaces.length > 1 ? "s" : ""
+				}`;
 
-		if (hotels.length > 0) {
-			parts.push(`${hotels.length} hotel${hotels.length > 1 ? "es" : ""}`);
-		}
+			default:
+				// Fallback al comportamiento anterior (aunque no debería ocurrir con el filtro)
+				let message = "Información detallada";
+				const parts = [];
 
-		if (restaurants.length > 0) {
-			parts.push(
-				`${restaurants.length} restaurante${restaurants.length > 1 ? "s" : ""}`
-			);
-		}
+				if (touristPlaces.length > 0) {
+					parts.push(
+						`${touristPlaces.length} lugar${
+							touristPlaces.length > 1 ? "es" : ""
+						} turístico${touristPlaces.length > 1 ? "s" : ""}`
+					);
+				}
 
-		if (parts.length > 0) {
-			message += ` de ${parts.join(", ")}`;
-		}
+				if (hotels.length > 0) {
+					parts.push(`${hotels.length} hotel${hotels.length > 1 ? "es" : ""}`);
+				}
 
-		return message;
+				if (restaurants.length > 0) {
+					parts.push(
+						`${restaurants.length} restaurante${
+							restaurants.length > 1 ? "s" : ""
+						}`
+					);
+				}
+
+				if (parts.length > 0) {
+					message += ` de ${parts.join(", ")}`;
+				}
+
+				return message;
+		}
 	}
 }
 

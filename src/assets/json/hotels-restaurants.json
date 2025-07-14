@@ -14,9 +14,22 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f7/8a/gran-hotel-huanuco.jpg?w=700&h=-1&s=1",
       "actividades": "WiFi gratuito, restaurante, bar, servicio de habitaciones, lavandería",
       "consejos": "Reservar con anticipación en temporada alta. Incluye desayuno continental.",
-      "keywords": ["hotel", "centro", "4 estrellas", "comodidades", "huanuco"],
+      "keywords": [
+        "hotel",
+        "centro",
+        "4 estrellas",
+        "comodidades",
+        "huanuco"
+      ],
       "precio_rango": "$$$",
-      "servicios": ["wifi", "desayuno", "restaurante", "bar", "lavanderia", "recepcion24h"],
+      "servicios": [
+        "wifi",
+        "desayuno",
+        "restaurante",
+        "bar",
+        "lavanderia",
+        "recepcion24h"
+      ],
       "destacado": true
     },
     "301": {
@@ -33,9 +46,20 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/2a/0b/f4/hotel-majestic.jpg?w=700&h=-1&s=1",
       "actividades": "WiFi, aire acondicionado, TV cable, servicio de habitaciones",
       "consejos": "Excelente ubicación cerca de la Plaza de Armas. Buen valor por el dinero.",
-      "keywords": ["hotel", "boutique", "colonial", "centro", "plaza de armas"],
+      "keywords": [
+        "hotel",
+        "boutique",
+        "colonial",
+        "centro",
+        "plaza de armas"
+      ],
       "precio_rango": "$$",
-      "servicios": ["wifi", "aire_acondicionado", "tv_cable", "servicio_habitaciones"],
+      "servicios": [
+        "wifi",
+        "aire_acondicionado",
+        "tv_cable",
+        "servicio_habitaciones"
+      ],
       "destacado": true
     },
     "302": {
@@ -52,9 +76,20 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/4d/02/ac/hotel-los-portales.jpg?w=700&h=-1&s=1",
       "actividades": "WiFi básico, agua caliente, TV, recepción 24 horas",
       "consejos": "Buena opción económica. Solicitar habitación en pisos superiores para menos ruido.",
-      "keywords": ["hotel", "economico", "basico", "limpio", "accesible"],
+      "keywords": [
+        "hotel",
+        "economico",
+        "basico",
+        "limpio",
+        "accesible"
+      ],
       "precio_rango": "$",
-      "servicios": ["wifi", "agua_caliente", "tv", "recepcion24h"],
+      "servicios": [
+        "wifi",
+        "agua_caliente",
+        "tv",
+        "recepcion24h"
+      ],
       "destacado": false
     },
     "303": {
@@ -71,10 +106,94 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/1e/7d/85/hotel-villa-tingo.jpg?w=700&h=-1&s=1",
       "actividades": "Piscina, jardín, tours de naturaleza, WiFi, restaurante",
       "consejos": "Perfecto para visitar la Cueva de las Lechuzas y la Bella Durmiente.",
-      "keywords": ["hotel", "tingo maria", "naturaleza", "parque nacional", "ecoturismo"],
+      "keywords": [
+        "hotel",
+        "tingo maria",
+        "naturaleza",
+        "parque nacional",
+        "ecoturismo"
+      ],
       "precio_rango": "$$",
-      "servicios": ["piscina", "jardin", "wifi", "restaurante", "tours"],
+      "servicios": [
+        "piscina",
+        "jardin",
+        "wifi",
+        "restaurante",
+        "tours"
+      ],
       "destacado": true
+    },
+    "304": {
+      "nombre": "Shushupe Hotel",
+      "direccion": "Tingo María, Huánuco",
+      "ciudad": "Tingo María",
+      "coordenadas": "-9.2890, -75.9905",
+      "tipo": "hotel",
+      "descripcion": "Hotel con piscina exterior, terraza, restaurante y bar. Destaca por su ambiente natural y atención personalizada.",
+      "calificacion": 9.3,
+      "url": "",
+      "telefono": "+51 62 331-500",
+      "activo": true
+    },
+    "305": {
+      "nombre": "Grima Hotel",
+      "direccion": "Jr. Dámaso Beraún 880, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9295, -76.2390",
+      "tipo": "hotel",
+      "descripcion": "Hotel céntrico con desayuno que incluye pan local tradicional. Ideal para explorar la Plaza de Armas.",
+      "calificacion": 8.0,
+      "url": "",
+      "telefono": "+51 62 517-890",
+      "activo": true
+    },
+    "306": {
+      "nombre": "Hospedaje El Cantaro II",
+      "direccion": "Tingo María, Huánuco",
+      "ciudad": "Tingo María",
+      "coordenadas": "-9.2860, -75.9912",
+      "tipo": "hotel",
+      "descripcion": "Hospedaje económico con terrazas y atención familiar. Destaca por su limpieza y camas cómodas.",
+      "calificacion": 7.7,
+      "url": "",
+      "telefono": "+51 62 332-000",
+      "activo": true
+    },
+    "307": {
+      "nombre": "Cabañas del Bosque - Huamalíes",
+      "direccion": "Carretera Huamalíes-Kotosh, Huamalíes",
+      "ciudad": "Huamalíes",
+      "coordenadas": "-9.3000, -76.5000",
+      "tipo": "hotel",
+      "descripcion": "Cabañas rústicas con vistas al Parque Nacional Huascarán. Ideal para trekking y observación de aves.",
+      "calificacion": 4.6,
+      "url": "",
+      "telefono": "+51 987 123 456",
+      "activo": true
+    },
+    "308": {
+      "nombre": "Hostal Dos de Mayo Histórico",
+      "direccion": "Plaza Principal s/n, Dos de Mayo",
+      "ciudad": "Dos de Mayo",
+      "coordenadas": "-9.8000, -76.8000",
+      "tipo": "hotel",
+      "descripcion": "Hostal frente a la plaza principal. Ofrece conexión Wi-Fi básica y desayuno con productos locales.",
+      "calificacion": 4.0,
+      "url": "",
+      "telefono": "+51 63 451-000",
+      "activo": true
+    },
+    "309": {
+      "nombre": "Refugio Tomay Kichwa",
+      "direccion": "Margen del Río Marañón, La Unión",
+      "ciudad": "La Unión",
+      "coordenadas": "-9.1500, -76.2500",
+      "tipo": "hotel",
+      "descripcion": "Refugio ecológico con actividades de kayak y pesca. Habitaciones sencillas con hamacas y vista al río.",
+      "calificacion": 4.3,
+      "url": "",
+      "telefono": "+51 965 789 123",
+      "activo": true
     }
   },
   "restaurantes": {
@@ -92,10 +211,22 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/34/56/78/el-fogon-de-la-abuela.jpg?w=700&h=-1&s=1",
       "actividades": "Comida criolla, platos típicos, ambiente familiar, música folclórica",
       "consejos": "Probar el locro de gallina y la pachamanca. Ideal para almuerzo.",
-      "keywords": ["restaurante", "criollo", "tipico", "locro", "pachamanca", "huanuqueña"],
+      "keywords": [
+        "restaurante",
+        "criollo",
+        "tipico",
+        "locro",
+        "pachamanca",
+        "huanuqueña"
+      ],
       "precio_rango": "$$",
       "cocina": "criolla",
-      "especialidades": ["locro de gallina", "pachamanca", "inchicapi", "sopa de cabrito"],
+      "especialidades": [
+        "locro de gallina",
+        "pachamanca",
+        "inchicapi",
+        "sopa de cabrito"
+      ],
       "destacado": true
     },
     "401": {
@@ -112,10 +243,22 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/22/33/44/pizzeria-don-vito.jpg?w=700&h=-1&s=1",
       "actividades": "Pizzas artesanales, pastas, ambiente familiar, delivery",
       "consejos": "Las pizzas están muy buenas y los precios son razonables. Abierto hasta tarde.",
-      "keywords": ["pizzeria", "italiana", "pasta", "pizza", "familiar", "delivery"],
+      "keywords": [
+        "pizzeria",
+        "italiana",
+        "pasta",
+        "pizza",
+        "familiar",
+        "delivery"
+      ],
       "precio_rango": "$$",
       "cocina": "italiana",
-      "especialidades": ["pizza margherita", "lasagna", "spaghetti carbonara", "tiramisu"],
+      "especialidades": [
+        "pizza margherita",
+        "lasagna",
+        "spaghetti carbonara",
+        "tiramisu"
+      ],
       "destacado": true
     },
     "402": {
@@ -132,10 +275,22 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/11/22/33/chifa-palacio-oro.jpg?w=700&h=-1&s=1",
       "actividades": "Comida chifa, platos grandes, ambiente familiar, delivery",
       "consejos": "Las porciones son generosas. Perfecto para compartir en grupo.",
-      "keywords": ["chifa", "chino", "peruano", "arroz chaufa", "tallarín", "familiar"],
+      "keywords": [
+        "chifa",
+        "chino",
+        "peruano",
+        "arroz chaufa",
+        "tallarín",
+        "familiar"
+      ],
       "precio_rango": "$",
       "cocina": "chifa",
-      "especialidades": ["arroz chaufa", "tallarín saltado", "wantán frito", "pollo chi jau kay"],
+      "especialidades": [
+        "arroz chaufa",
+        "tallarín saltado",
+        "wantán frito",
+        "pollo chi jau kay"
+      ],
       "destacado": false
     },
     "403": {
@@ -152,10 +307,22 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/45/67/89/la-olla-de-barro.jpg?w=700&h=-1&s=1",
       "actividades": "Comida de la sierra, parrillas, sopas, ambiente rústico",
       "consejos": "Excelente para probar comida tradicional andina. Ambiente acogedor.",
-      "keywords": ["tradicional", "sierra", "guisos", "parrilla", "sopas", "andino"],
+      "keywords": [
+        "tradicional",
+        "sierra",
+        "guisos",
+        "parrilla",
+        "sopas",
+        "andino"
+      ],
       "precio_rango": "$$",
       "cocina": "andina",
-      "especialidades": ["caldo de cabeza", "seco de cabrito", "anticuchos", "parrillada"],
+      "especialidades": [
+        "caldo de cabeza",
+        "seco de cabrito",
+        "anticuchos",
+        "parrillada"
+      ],
       "destacado": true
     },
     "404": {
@@ -172,10 +339,109 @@
       "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/56/78/90/cafe-cultural-kotosh.jpg?w=700&h=-1&s=1",
       "actividades": "Café especialidad, arte local, WiFi, ambiente bohemio, postres caseros",
       "consejos": "Perfecto para trabajar o estudiar. Tienen exposiciones de arte rotativas.",
-      "keywords": ["cafe", "cultural", "arte", "bohemio", "wifi", "postres"],
+      "keywords": [
+        "cafe",
+        "cultural",
+        "arte",
+        "bohemio",
+        "wifi",
+        "postres"
+      ],
       "precio_rango": "$",
       "cocina": "cafe",
-      "especialidades": ["café huanuqueño", "cheesecake", "brownies", "smoothies"],
+      "especialidades": [
+        "café huanuqueño",
+        "cheesecake",
+        "brownies",
+        "smoothies"
+      ],
+      "destacado": true
+    },
+    "405": {
+      "nombre": "Yuraq Wasi Restobar",
+      "direccion": "Jr. Las Garzas Mz G Lt 14, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9250, -76.2350",
+      "tipo": "restaurante",
+      "descripcion": "Cocina fusión peruano-andina con cócteles artesanales. Ambiente nocturno con música en vivo los fines de semana.",
+      "calificacion": 4.3,
+      "url": "",
+      "telefono": "+51 62 515-000",
+      "activo": true,
+      "imagen": "",
+      "actividades": "Cócteles, tapas andinas, música en vivo",
+      "consejos": "Pruebe el lomo saltado con quinoa y el pisco sour de aguaymanto.",
+      "keywords": [
+        "fusión",
+        "cócteles",
+        "música",
+        "andino"
+      ],
+      "precio_rango": "$$",
+      "cocina": "fusión peruana",
+      "especialidades": [
+        "Ceviche de trucha",
+        "Lomo saltado con quinoa",
+        "Pisco sour de frutas locales"
+      ],
+      "destacado": true
+    },
+    "406": {
+      "nombre": "Sazón de Huamalíes",
+      "direccion": "Mercado Central, Huamalíes",
+      "ciudad": "Huamalíes",
+      "coordenadas": "-9.3050, -76.5050",
+      "tipo": "restaurante",
+      "descripcion": "Cocina tradicional huamaliana en ambiente rústico. Especializado en papas nativas y carnes de la sierra.",
+      "calificacion": 4.5,
+      "url": "",
+      "telefono": "+51 987 654 321",
+      "activo": true,
+      "imagen": "",
+      "actividades": "Platos típicos, mercado local",
+      "consejos": "No dejar de probar el caldo de cabeza con hierbas andinas.",
+      "keywords": [
+        "tradicional",
+        "sierra",
+        "papas nativas",
+        "mercado"
+      ],
+      "precio_rango": "$",
+      "cocina": "andina",
+      "especialidades": [
+        "Caldo de cabeza",
+        "Pachamanca huamaliana",
+        "Trucha frita"
+      ],
+      "destacado": false
+    },
+    "407": {
+      "nombre": "El Mirador de Dos de Mayo",
+      "direccion": "Cerro San Francisco, Dos de Mayo",
+      "ciudad": "Dos de Mayo",
+      "coordenadas": "-9.8020, -76.8050",
+      "tipo": "restaurante",
+      "descripcion": "Vistas panorámicas al valle. Especializado en parrilladas y chicharrones preparados en leña.",
+      "calificacion": 4.2,
+      "url": "",
+      "telefono": "+51 63 450-000",
+      "activo": true,
+      "imagen": "",
+      "actividades": "Parrilladas, chicharrones, vistas al valle",
+      "consejos": "Ideal para almuerzos con vista. Llegar temprano para conseguir mesa en la terraza.",
+      "keywords": [
+        "parrilla",
+        "chicharrón",
+        "mirador",
+        "carnes"
+      ],
+      "precio_rango": "$$",
+      "cocina": "criolla",
+      "especialidades": [
+        "Chicharrón de cerdo",
+        "Parrillada mixta",
+        "Humitas"
+      ],
       "destacado": true
     }
   }

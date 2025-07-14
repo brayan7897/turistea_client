@@ -65,7 +65,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Templo_Blanco_de_Kotosh_amb_l%27edifici_del_Templo_de_las_Manos_darrera03.jpg/1280px-Templo_Blanco_de_Kotosh_amb_l%27edifici_del_Templo_de_las_Manos_darrera03.jpg",
                         "actividades": "Visitas guiadas, fotografía, estudio arqueológico",
                         "consejos": "Mejor visitarlo en las mañanas. Llevar protector solar y agua.",
-                        "keywords": ["kotosh", "templo", "manos cruzadas", "arqueologico", "preinca"]
+                        "keywords": [
+                                "kotosh",
+                                "templo",
+                                "manos cruzadas",
+                                "arqueologico",
+                                "preinca"
+                        ]
                 },
                 "201": {
                         "nombre": "Plaza de Armas de Huánuco",
@@ -81,7 +87,13 @@
                         "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/4a/85/5e/dscf7752-snapseed-largejpg.jpg?w=1000&h=-1&s=1",
                         "actividades": "Paseos, fotografía, eventos culturales, gastronomía",
                         "consejos": "Ideal para visitar por las tardes. Hay muchos restaurantes y cafeterías alrededor.",
-                        "keywords": ["plaza de armas", "centro", "catedral", "huanuco", "colonial"]
+                        "keywords": [
+                                "plaza de armas",
+                                "centro",
+                                "catedral",
+                                "huanuco",
+                                "colonial"
+                        ]
                 },
                 "202": {
                         "nombre": "Catedral de Huánuco (Señor de Burgos)",
@@ -97,7 +109,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hu%C3%A1nuco_Cathedral.jpg/330px-Hu%C3%A1nuco_Cathedral.jpg",
                         "actividades": "Visitas religiosas, fotografía arquitectónica, eventos religiosos",
                         "consejos": "Respetar los horarios de misa. Entrada gratuita.",
-                        "keywords": ["catedral", "señor de burgos", "iglesia", "religioso", "colonial"]
+                        "keywords": [
+                                "catedral",
+                                "señor de burgos",
+                                "iglesia",
+                                "religioso",
+                                "colonial"
+                        ]
                 },
                 "203": {
                         "nombre": "Puente Calicanto",
@@ -113,7 +131,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Puente_Calicanto%2C_Hu%C3%A1nuco%2C_Per%C3%BA.jpg/330px-Puente_Calicanto%2C_Hu%C3%A1nuco%2C_Per%C3%BA.jpg",
                         "actividades": "Fotografía, paseos, observación del río",
                         "consejos": "Mejor visitarlo al atardecer. Cuidado con el tráfico vehicular.",
-                        "keywords": ["puente calicanto", "colonial", "rio huallaga", "historico", "piedra"]
+                        "keywords": [
+                                "puente calicanto",
+                                "colonial",
+                                "rio huallaga",
+                                "historico",
+                                "piedra"
+                        ]
                 },
                 "204": {
                         "nombre": "Puma Ringri (Bella Durmiente)",
@@ -129,7 +153,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Muntanya_la_Bella_Durmiente_entre_Tingo_Mar%C3%ADa_i_el_Parc_Nacional_de_Tingo_Mar%C3%ADa.jpg/1024px-Muntanya_la_Bella_Durmiente_entre_Tingo_Mar%C3%ADa_i_el_Parc_Nacional_de_Tingo_Mar%C3%ADa.jpg",
                         "actividades": "Fotografía, mirador, trekking ligero, observación panorámica",
                         "consejos": "Mejor vista desde el mirador principal. Ideal para el atardecer.",
-                        "keywords": ["bella durmiente", "puma ringri", "tingo maria", "montaña", "mirador"]
+                        "keywords": [
+                                "bella durmiente",
+                                "puma ringri",
+                                "tingo maria",
+                                "montaña",
+                                "mirador"
+                        ]
                 },
                 "205": {
                         "nombre": "Cueva de las Lechuzas",
@@ -145,7 +175,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cueva_de_las_Lechuzas%2C_al_Parc_Nacional_de_Tingo_Mar%C3%ADa05.jpg/1024px-Cueva_de_las_Lechuzas%2C_al_Parc_Nacional_de_Tingo_Mar%C3%ADa05.jpg",
                         "actividades": "Espeleología, observación de fauna, fotografía, ecoturismo",
                         "consejos": "Usar linterna, calzado antideslizante y ropa que se pueda ensuciar.",
-                        "keywords": ["cueva de las lechuzas", "guacharos", "espeleologia", "tingo maria", "parque nacional"]
+                        "keywords": [
+                                "cueva de las lechuzas",
+                                "guacharos",
+                                "espeleologia",
+                                "tingo maria",
+                                "parque nacional"
+                        ]
                 },
                 "206": {
                         "nombre": "Casa Hacienda Shismay",
@@ -161,7 +197,13 @@
                         "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/56/08/69/casa-hacienda-shismay.jpg?w=1000&h=-1&s=1",
                         "actividades": "Turismo rural, hospedaje, fotografía, museo",
                         "consejos": "Reservar con anticipación para hospedaje. Ideal para turismo vivencial.",
-                        "keywords": ["shismay", "hacienda", "colonial", "museo", "turismo rural"]
+                        "keywords": [
+                                "shismay",
+                                "hacienda",
+                                "colonial",
+                                "museo",
+                                "turismo rural"
+                        ]
                 },
                 "207": {
                         "nombre": "Complejo Arqueológico de Garu",
@@ -177,7 +219,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Garu_04380.jpg/1024px-Garu_04380.jpg",
                         "actividades": "Turismo arqueológico, trekking, fotografía, investigación",
                         "consejos": "Llevar guía local. Acceso por camino de herradura.",
-                        "keywords": ["garu", "yarowilca", "arqueologico", "preinca", "patrimonio"]
+                        "keywords": [
+                                "garu",
+                                "yarowilca",
+                                "arqueologico",
+                                "preinca",
+                                "patrimonio"
+                        ]
                 },
                 "208": {
                         "nombre": "Lagunas de Pichgacocha",
@@ -193,7 +241,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lagunas_Pichgacocha.jpg/1200px-Lagunas_Pichgacocha.jpg",
                         "actividades": "Pesca deportiva, paseos en bote, fotografía, camping",
                         "consejos": "Llevar ropa de abrigo. Mejor época: mayo a septiembre.",
-                        "keywords": ["pichgacocha", "lagunas", "pesca", "ambo", "naturaleza"]
+                        "keywords": [
+                                "pichgacocha",
+                                "lagunas",
+                                "pesca",
+                                "ambo",
+                                "naturaleza"
+                        ]
                 },
                 "209": {
                         "nombre": "Tingo María - La Puerta de la Selva",
@@ -209,7 +263,13 @@
                         "imagen": "https://blog.redbus.pe/wp-content/uploads/2017/10/tingo-maria.jpeg",
                         "actividades": "Ecoturismo, aventura, observación de flora y fauna, turismo gastronómico",
                         "consejos": "Llevar repelente, ropa cómoda y cámara. El clima es tropical.",
-                        "keywords": ["tingo maria", "selva", "biodiversidad", "ecoturismo", "tropical"]
+                        "keywords": [
+                                "tingo maria",
+                                "selva",
+                                "biodiversidad",
+                                "ecoturismo",
+                                "tropical"
+                        ]
                 },
                 "210": {
                         "nombre": "Laguna Lauricocha",
@@ -225,7 +285,13 @@
                         "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Laguna_Lauricocha_07613.jpg/1024px-Laguna_Lauricocha_07613.jpg",
                         "actividades": "Turismo de naturaleza, fotografía, pesca deportiva, trekking de altura",
                         "consejos": "Llevar ropa de abrigo, el clima es muy frío. Aclimatarse gradualmente a la altura.",
-                        "keywords": ["laguna lauricocha", "glaciar", "altura", "marañon", "cordillera"]
+                        "keywords": [
+                                "laguna lauricocha",
+                                "glaciar",
+                                "altura",
+                                "marañon",
+                                "cordillera"
+                        ]
                 }
         },
         "recomendaciones": {
@@ -241,18 +307,6 @@
                                 "popularidad": "alta"
                         }
                 }
-        },
-        "208": {
-                "nombre": "Lagunas de Pichgacocha",
-                "direccion": "Provincia de Ambo, Huánuco",
-                "ciudad": "Huánuco",
-                "coordenadas": "-9.7500,-76.1600",
-                "tipo": "atraccion",
-                "descripcion": "Conjunto de cinco lagunas para pesca y paseos en bote.",
-                "calificacion": 4.1,
-                "url": "",
-                "telefono": "",
-                "activo": true
         },
         "hoteles": {
                 "301": {
@@ -289,6 +343,78 @@
                         "calificacion": 4.7,
                         "url": "",
                         "telefono": "+51 62 322000",
+                        "activo": true
+                },
+                "304": {
+                        "nombre": "Shushupe Hotel",
+                        "direccion": "Tingo María, Huánuco",
+                        "ciudad": "Tingo María",
+                        "coordenadas": "-9.2890, -75.9905",
+                        "tipo": "hotel",
+                        "descripcion": "Hotel con piscina exterior, terraza, restaurante y bar. Destaca por su ambiente natural y atención personalizada.",
+                        "calificacion": 9.3,
+                        "url": "",
+                        "telefono": "+51 62 331-500",
+                        "activo": true
+                },
+                "305": {
+                        "nombre": "Grima Hotel",
+                        "direccion": "Jr. Dámaso Beraún 880, Huánuco",
+                        "ciudad": "Huánuco",
+                        "coordenadas": "-9.9295, -76.2390",
+                        "tipo": "hotel",
+                        "descripcion": "Hotel céntrico con desayuno que incluye pan local tradicional. Ideal para explorar la Plaza de Armas.",
+                        "calificacion": 8.0,
+                        "url": "",
+                        "telefono": "+51 62 517-890",
+                        "activo": true
+                },
+                "306": {
+                        "nombre": "Hospedaje El Cantaro II",
+                        "direccion": "Tingo María, Huánuco",
+                        "ciudad": "Tingo María",
+                        "coordenadas": "-9.2860, -75.9912",
+                        "tipo": "hotel",
+                        "descripcion": "Hospedaje económico con terrazas y atención familiar. Destaca por su limpieza y camas cómodas.",
+                        "calificacion": 7.7,
+                        "url": "",
+                        "telefono": "+51 62 332-000",
+                        "activo": true
+                },
+                "307": {
+                        "nombre": "Cabañas del Bosque - Huamalíes",
+                        "direccion": "Carretera Huamalíes-Kotosh, Huamalíes",
+                        "ciudad": "Huamalíes",
+                        "coordenadas": "-9.3000, -76.5000",
+                        "tipo": "hotel",
+                        "descripcion": "Cabañas rústicas con vistas al Parque Nacional Huascarán. Ideal para trekking y observación de aves.",
+                        "calificacion": 4.6,
+                        "url": "",
+                        "telefono": "+51 987 123 456",
+                        "activo": true
+                },
+                "308": {
+                        "nombre": "Hostal Dos de Mayo Histórico",
+                        "direccion": "Plaza Principal s/n, Dos de Mayo",
+                        "ciudad": "Dos de Mayo",
+                        "coordenadas": "-9.8000, -76.8000",
+                        "tipo": "hotel",
+                        "descripcion": "Hostal frente a la plaza principal. Ofrece conexión Wi-Fi básica y desayuno con productos locales.",
+                        "calificacion": 4.0,
+                        "url": "",
+                        "telefono": "+51 63 451-000",
+                        "activo": true
+                },
+                "309": {
+                        "nombre": "Refugio Tomay Kichwa",
+                        "direccion": "Margen del Río Marañón, La Unión",
+                        "ciudad": "La Unión",
+                        "coordenadas": "-9.1500, -76.2500",
+                        "tipo": "hotel",
+                        "descripcion": "Refugio ecológico con actividades de kayak y pesca. Habitaciones sencillas con hamacas y vista al río.",
+                        "calificacion": 4.3,
+                        "url": "",
+                        "telefono": "+51 965 789 123",
                         "activo": true
                 }
         },

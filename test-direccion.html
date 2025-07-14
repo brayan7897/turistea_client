@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Test de Dirección - PlaceCard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .test-container { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .step { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #007bff; }
+        .error { border-left-color: #dc3545; background: #f8d7da; }
+        .success { border-left-color: #28a745; background: #d4edda; }
+        .warning { border-left-color: #ffc107; background: #fff3cd; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        .highlight { background: yellow; font-weight: bold; }
+        .console-output { background: #1e1e1e; color: #fff; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; }
+        .emoji { font-size: 1.2em; }
+        .browser-instruction { background: #e3f2fd; padding: 15px; border-radius: 5px; border: 1px solid #2196f3; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Dirección - PlaceCard Debug</h1>
+
+    <div class="browser-instruction">
+        <h2>📋 Instrucciones para el Test</h2>
+        <ol>
+            <li><strong>Abrir la aplicación:</strong> Ve a <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></li>
+            <li><strong>Abrir Consola:</strong> Presiona <code>F12</code> para abrir las herramientas de desarrollo</li>
+            <li><strong>Ir a la pestaña "Console"</strong></li>
+            <li><strong>Escribir en el chat:</strong> <span class="highlight">"¿Qué lugares turísticos hay en Huánuco?"</span></li>
+            <li><strong>Enviar mensaje</strong> y esperar respuesta</li>
+            <li><strong>Revisar logs</strong> en la consola según la tabla de abajo</li>
+        </ol>
+    </div>
+
+    <div class="test-container">
+        <h2>🔍 Logs de Debug Esperados (en orden)</h2>
+        
+        <div class="step">
+            <h3>1️⃣ Entrada al touristPlacesService</h3>
+            <div class="console-output">🏛️ [DEBUG] generateCardsFromResponse input: "¿Qué lugares turísticos hay en Huánuco?"</div>
+            <p><strong>Qué verificar:</strong> La consulta se está procesando correctamente</p>
+        </div>
+
+        <div class="step">
+            <h3>2️⃣ Lugares encontrados</h3>
+            <div class="console-output">🏛️ [DEBUG] extractTouristPlaces final result: [
+  {
+    "key": "kotosh", 
+    "title": "Complejo Arqueológico de Kotosh",
+    "location": "Km 5 Oeste, Huánuco",
+    ...
+  }
+]</div>
+            <p><strong>Qué verificar:</strong> <span class="highlight">location: "Km 5 Oeste, Huánuco"</span> debe estar presente</p>
+        </div>
+
+        <div class="step">
+            <h3>3️⃣ Direcciones extraídas</h3>
+            <div class="console-output">📍 [DEBUG] Direcciones extraídas: ["Km 5 Oeste, Huánuco", "Jr. Dos de Mayo, Huánuco"]</div>
+            <p><strong>Qué verificar:</strong> Las direcciones están siendo extraídas del JSON</p>
+        </div>
+
+        <div class="step">
+            <h3>4️⃣ Conversión a formato card (CRÍTICO)</h3>
+            <div class="console-output">🏛️ [DEBUG] touristPlacesService.placeToCardFormat input: {
+  "title": "Complejo Arqueológico de Kotosh",
+  "location": "Km 5 Oeste, Huánuco",
+  ...
+}</div>
+            <p><strong>Qué verificar:</strong> <span class="highlight">location</span> debe tener la dirección correcta</p>
+        </div>
+
+        <div class="step">
+            <h3>5️⃣ Mapeo de dirección específico (CRÍTICO)</h3>
+            <div class="console-output">📍 [DEBUG] Dirección específica: {
+  "original_direccion": "Km 5 Oeste, Huánuco",
+  "mapped_buttonUrl": "Km 5 Oeste, Huánuco"
+}</div>
+            <p><strong>Qué verificar:</strong> Ambos valores deben ser iguales y no estar vacíos</p>
+        </div>
+
+        <div class="step">
+            <h3>6️⃣ Resultado del formateo</h3>
+            <div class="console-output">🏛️ [DEBUG] touristPlacesService.placeToCardFormat output: {
+  "structValue": {
+    "fields": {
+      "buttonUrl": { "stringValue": "Km 5 Oeste, Huánuco" },
+      ...
+    }
+  }
+}</div>
+            <p><strong>Qué verificar:</strong> <span class="highlight">buttonUrl.stringValue</span> debe tener la dirección</p>
+        </div>
+
+        <div class="step">
+            <h3>7️⃣ Datos formateados para PlaceCard</h3>
+            <div class="console-output">🏛️ [DEBUG] Datos formateados para PlaceCard: [
+  {
+    "title": { "stringValue": "Complejo Arqueológico de Kotosh" },
+    "buttonUrl": { "stringValue": "Km 5 Oeste, Huánuco" },
+    ...
+  }
+]</div>
+            <p><strong>Qué verificar:</strong> <span class="highlight">buttonUrl.stringValue</span> debe contener la dirección</p>
+        </div>
+
+        <div class="step">
+            <h3>8️⃣ Extracción en PlaceCard (FINAL)</h3>
+            <div class="console-output">🔍 [DEBUG] Todos los datos extraídos del card: {
+  "title": "Complejo Arqueológico de Kotosh",
+  "buttonText": "Km 5 Oeste, Huánuco",
+  ...
+}</div>
+            <p><strong>Qué verificar:</strong> <span class="highlight">buttonText</span> debe tener la dirección final</p>
+        </div>
+
+        <div class="step">
+            <h3>9️⃣ Debug específico de ubicación</h3>
+            <div class="console-output">📍 [DEBUG] Ubicación en PlaceCard: {
+  "raw_buttonUrl": { "stringValue": "Km 5 Oeste, Huánuco" },
+  "final_buttonText": "Km 5 Oeste, Huánuco"
+}</div>
+            <p><strong>Qué verificar:</strong> <span class="highlight">final_buttonText</span> debe tener la dirección y mostrarla en el card</p>
+        </div>
+    </div>
+
+    <!-- DIAGNÓSTICO SEGÚN RESULTADOS -->
+    <div class="error">
+        <h2>🚨 Diagnóstico según resultados del test</h2>
+        
+        <h3>Si el paso 2 falla (extractTouristPlaces vacío):</h3>
+        <ul>
+            <li><strong>Problema:</strong> No se encuentran lugares por keywords</li>
+            <li><strong>Solución:</strong> Verificar que "huánuco" o "lugares turísticos" activen la búsqueda</li>
+        </ul>
+        
+        <h3>Si el paso 3 falla (sin direcciones):</h3>
+        <ul>
+            <li><strong>Problema:</strong> buildPlacesDatabase() no mapea place.direccion correctamente</li>
+            <li><strong>Solución:</strong> Error en la línea 14 del servicio</li>
+        </ul>
+        
+        <h3>Si el paso 5 falla (direcciones vacías):</h3>
+        <ul>
+            <li><strong>Problema:</strong> place.location está undefined en placeToCardFormat</li>
+            <li><strong>Solución:</strong> Verificar que extractTouristPlaces retorna location</li>
+        </ul>
+        
+        <h3>Si el paso 7 falla (buttonUrl vacío):</h3>
+        <ul>
+            <li><strong>Problema:</strong> DynamicListCards no pasa correctamente los datos</li>
+            <li><strong>Solución:</strong> Verificar formatDataForCard en DynamicListCards.js</li>
+        </ul>
+        
+        <h3>Si el paso 9 falla (buttonText vacío):</h3>
+        <ul>
+            <li><strong>Problema:</strong> PlaceCard no extrae card.buttonUrl?.stringValue correctamente</li>
+            <li><strong>Solución:</strong> Error en la extracción en PlaceCard.js línea donde extrae buttonText</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h2>✅ Resultado Esperado</h2>
+        <p>Si todo funciona correctamente, el PlaceCard debe mostrar:</p>
+        <ul>
+            <li><strong>Título:</strong> "Complejo Arqueológico de Kotosh"</li>
+            <li><strong>Ubicación:</strong> "📍 Km 5 Oeste, Huánuco" (no "Dirección no disponible")</li>
+            <li><strong>Descripción en modal:</strong> Texto completo del JSON</li>
+            <li><strong>Botón de ubicación funcional</strong></li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <h2>📞 Reportar Resultados</h2>
+        <p>Después de hacer la prueba, informa:</p>
+        <ol>
+            <li><strong>¿En qué paso se detiene o falla?</strong></li>
+            <li><strong>¿Qué logs específicos ves en la consola?</strong></li>
+            <li><strong>¿Sigue mostrando "Dirección no disponible"?</strong></li>
+            <li><strong>Screenshot del card si es posible</strong></li>
+        </ol>
+        <p><em>Con esta información podré identificar el problema exacto y solucionarlo.</em></p>
+    </div>
+
+</body>
+</html>
