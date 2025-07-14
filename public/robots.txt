@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /api/
+Disallow: /.env
+Disallow: /config/
+
+# Permitir indexación del sitio principal
+Allow: /
+
+# Sitemap (cuando esté disponible)
+# Sitemap: https://your-domain.com/sitemap.xml
