@@ -1,25 +1,25 @@
 {
   "hoteles": {
     "300": {
-      "nombre": "Gran Hotel Huánuco",
+      "nombre": "Grand Hotel Huánuco",
       "direccion": "Jr. Dámaso Beraún 775, Huánuco",
       "ciudad": "Huánuco",
       "coordenadas": "-9.9295,-76.2405",
       "tipo": "hotel",
-      "descripcion": "Hotel de 4 estrellas ubicado en el centro histórico de Huánuco. Ofrece habitaciones cómodas con todas las comodidades modernas, restaurante, bar y servicio de lavandería.",
-      "calificacion": 4.3,
+      "descripcion": "Hotel de 3 estrellas ubicado frente a la Plaza de Armas, con piscina, gimnasio, bar, restaurante y centro de negocios. Patrimonio histórico.",
+      "calificacion": 8.6,
       "url": "https://granhotelhuanuco.com",
       "telefono": "+51 62 512-410",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f7/8a/gran-hotel-huanuco.jpg?w=700&h=-1&s=1",
-      "actividades": "WiFi gratuito, restaurante, bar, servicio de habitaciones, lavandería",
-      "consejos": "Reservar con anticipación en temporada alta. Incluye desayuno continental.",
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/a4/30/31/20200115-095141-largejpg.jpg?w=1200&h=-1&s=1",
+      "actividades": "Piscina, gimnasio, bar, restaurante, centro de negocios",
+      "consejos": "Ideal reservar con anticipación y para viajes de negocios o turísticos.",
       "keywords": [
         "hotel",
         "centro",
-        "4 estrellas",
-        "comodidades",
-        "huanuco"
+        "piscina",
+        "negocios",
+        "histórico"
       ],
       "precio_rango": "$$$",
       "servicios": [
@@ -27,173 +27,215 @@
         "desayuno",
         "restaurante",
         "bar",
-        "lavanderia",
+        "piscina",
+        "gimnasio",
         "recepcion24h"
       ],
       "destacado": true
     },
     "301": {
-      "nombre": "Hotel Majestic",
-      "direccion": "Jr. Huánuco 661, Huánuco",
+      "nombre": "Hotel Venecia",
+      "direccion": "Palacio Benjamín N°429, Huánuco",
       "ciudad": "Huánuco",
-      "coordenadas": "-9.9301,-76.2415",
+      "coordenadas": "-9.9305,-76.2410",
       "tipo": "hotel",
-      "descripcion": "Hotel boutique en el corazón de Huánuco. Combina arquitectura colonial con comodidades modernas. Ideal para turistas y viajeros de negocios.",
-      "calificacion": 4.1,
+      "descripcion": "Hotel de 2‑3 estrellas, buena ubicación a 900 m del estadio Heraclio Tapia. Ofrece desayuno, wifi, recepción 24 h y traslado aeropuerto.",
+      "calificacion": 7.4,
       "url": "",
-      "telefono": "+51 62 511-995",
+      "telefono": "",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/2a/0b/f4/hotel-majestic.jpg?w=700&h=-1&s=1",
-      "actividades": "WiFi, aire acondicionado, TV cable, servicio de habitaciones",
-      "consejos": "Excelente ubicación cerca de la Plaza de Armas. Buen valor por el dinero.",
+      "imagen": "https://imgservice.alojamiento.io/500x245/hotel-venecia-pe-hu%C3%A1nuco-bc-1450990-0.jpg",
+      "actividades": "WiFi, desayuno, recepcion 24h, traslado aeropuerto",
+      "consejos": "Buena opción económica cerca del centro y estadio.",
       "keywords": [
         "hotel",
-        "boutique",
-        "colonial",
+        "económico",
         "centro",
-        "plaza de armas"
+        "desayuno"
       ],
       "precio_rango": "$$",
       "servicios": [
         "wifi",
-        "aire_acondicionado",
-        "tv_cable",
-        "servicio_habitaciones"
-      ],
-      "destacado": true
-    },
-    "302": {
-      "nombre": "Hotel Los Portales",
-      "direccion": "Jr. Dos de Mayo 1121, Huánuco",
-      "ciudad": "Huánuco",
-      "coordenadas": "-9.9310,-76.2390",
-      "tipo": "hotel",
-      "descripcion": "Hotel económico pero confortable, ubicado cerca del centro de la ciudad. Ofrece habitaciones limpias y servicios básicos a precios accesibles.",
-      "calificacion": 3.8,
-      "url": "",
-      "telefono": "+51 62 513-280",
-      "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/4d/02/ac/hotel-los-portales.jpg?w=700&h=-1&s=1",
-      "actividades": "WiFi básico, agua caliente, TV, recepción 24 horas",
-      "consejos": "Buena opción económica. Solicitar habitación en pisos superiores para menos ruido.",
-      "keywords": [
-        "hotel",
-        "economico",
-        "basico",
-        "limpio",
-        "accesible"
-      ],
-      "precio_rango": "$",
-      "servicios": [
-        "wifi",
-        "agua_caliente",
-        "tv",
-        "recepcion24h"
+        "desayuno",
+        "recepcion24h",
+        "traslado"
       ],
       "destacado": false
     },
-    "303": {
-      "nombre": "Hotel Villa Tingo",
-      "direccion": "Av. Raimondi 119, Tingo María",
+    "302": {
+      "nombre": "Grima Hotel",
+      "direccion": "Jr. Dámaso Beraún 880, Huánuco",
       "ciudad": "Huánuco",
-      "coordenadas": "-9.2945,-75.9920",
+      "coordenadas": "-9.9294,-76.2390",
       "tipo": "hotel",
-      "descripcion": "Hotel ubicado en Tingo María, ideal para explorar el Parque Nacional. Rodeado de naturaleza y cerca de las principales atracciones naturales de la zona.",
-      "calificacion": 4.2,
+      "descripcion": "Hotel 3 estrellas, moderno, con piscina pequeña, wifi, desayuno y centro de negocios. Ideal para viajes familiares o de trabajo.",
+      "calificacion": 7.9,
       "url": "",
-      "telefono": "+51 62 562-047",
+      "telefono": "",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/1e/7d/85/hotel-villa-tingo.jpg?w=700&h=-1&s=1",
-      "actividades": "Piscina, jardín, tours de naturaleza, WiFi, restaurante",
-      "consejos": "Perfecto para visitar la Cueva de las Lechuzas y la Bella Durmiente.",
+      "imagen": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194765160.jpg?k=aa7676fedf9a3d2d7dc67775506e5b463a8a4e2e1e069a86b5ce9bdcab0263e3&o=&hp=1",
+      "actividades": "Piscina, wifi, desayuno, sala común, servicio habitaciones",
+      "consejos": "Solicitar habitación con jacuzzi si está disponible.",
       "keywords": [
         "hotel",
-        "tingo maria",
-        "naturaleza",
-        "parque nacional",
-        "ecoturismo"
+        "piscina",
+        "familiar",
+        "negocios"
+      ],
+      "precio_rango": "$$$",
+      "servicios": [
+        "wifi",
+        "desayuno",
+        "piscina",
+        "centro_negocios",
+        "recepcion24h"
+      ],
+      "destacado": true
+    },
+    "303": {
+      "nombre": "Hotel Mauri",
+      "direccion": "Jr. Hermilio Valdizán 785, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9312,-76.2420",
+      "tipo": "hotel",
+      "descripcion": "Hotel de 3 estrellas, excelente ubicación a 150 m de la Plaza de Armas, con wifi, TV cable, baño privado y recepción 24 h.",
+      "calificacion": 8.8,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/226110801.jpg?k=7145c39993e04c4fec6966293876fd1758e78aa4b13de10a998fa6f975167713&o=&hp=1",
+      "actividades": "WiFi, TV cable, desayuno, recepción 24h",
+      "consejos": "Opción céntrica, ideal para explorar caminando.",
+      "keywords": [
+        "hotel",
+        "centro",
+        "3 estrellas",
+        "familia"
       ],
       "precio_rango": "$$",
       "servicios": [
-        "piscina",
-        "jardin",
         "wifi",
-        "restaurante",
-        "tours"
+        "desayuno",
+        "tv_cable",
+        "recepcion24h"
       ],
       "destacado": true
     },
     "304": {
-      "nombre": "Shushupe Hotel",
-      "direccion": "Tingo María, Huánuco",
-      "ciudad": "Tingo María",
-      "coordenadas": "-9.2890, -75.9905",
+      "nombre": "Lembranças Hotel",
+      "direccion": "Jr. Mayro 676, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9308,-76.2402",
       "tipo": "hotel",
-      "descripcion": "Hotel con piscina exterior, terraza, restaurante y bar. Destaca por su ambiente natural y atención personalizada.",
-      "calificacion": 9.3,
+      "descripcion": "Hotel 3 estrellas con terraza, habitaciones con aire acondicionado, wifi gratuito y servicio de habitaciones 24 h.",
+      "calificacion": 8.3,
       "url": "",
-      "telefono": "+51 62 331-500",
-      "activo": true
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/405892580.jpg?k=fba44a8c2251862463454fd6896cccf8a7185e94019f07d8e4ddfe3b35b8041d&o=&hp=1",
+      "actividades": "WiFi, desayuno, terraza, mascotas",
+      "consejos": "Acepta mascotas y tiene parking.",
+      "keywords": [
+        "hotel",
+        "terraza",
+        "wifi",
+        "mascotas"
+      ],
+      "precio_rango": "$$",
+      "servicios": [
+        "wifi",
+        "desayuno",
+        "terraza",
+        "mascotas",
+        "recepcion24h"
+      ],
+      "destacado": false
     },
     "305": {
-      "nombre": "Grima Hotel",
-      "direccion": "Jr. Dámaso Beraún 880, Huánuco",
+      "nombre": "Hostal Pacífico Huánuco",
+      "direccion": "Pasaje Cárdenas 117, Huánuco",
       "ciudad": "Huánuco",
-      "coordenadas": "-9.9295, -76.2390",
-      "tipo": "hotel",
-      "descripcion": "Hotel céntrico con desayuno que incluye pan local tradicional. Ideal para explorar la Plaza de Armas.",
-      "calificacion": 8.0,
+      "coordenadas": "-9.9290,-76.2380",
+      "tipo": "hostal",
+      "descripcion": "Hostal económico con buen wifi, baño caliente, recepción 24 h y terraza. Aprox. 900 m del estadio Heraclio Tapia.",
+      "calificacion": 7.0,
       "url": "",
-      "telefono": "+51 62 517-890",
-      "activo": true
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/fc/c3/ce/hostal-pacifico-huanuco.jpg?w=900&h=500&s=1",
+      "actividades": "WiFi, terraza, recepción 24h",
+      "consejos": "Buen precio para viajeros con presupuesto limitado.",
+      "keywords": [
+        "hostal",
+        "económico",
+        "terraza"
+      ],
+      "precio_rango": "$",
+      "servicios": [
+        "wifi",
+        "terraza",
+        "recepcion24h"
+      ],
+      "destacado": false
     },
     "306": {
-      "nombre": "Hospedaje El Cantaro II",
-      "direccion": "Tingo María, Huánuco",
-      "ciudad": "Tingo María",
-      "coordenadas": "-9.2860, -75.9912",
+      "nombre": "Hotel Terra Premium",
+      "direccion": "Carretera Huánuco - Tingo María Km 2.5, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9200,-76.2500",
       "tipo": "hotel",
-      "descripcion": "Hospedaje económico con terrazas y atención familiar. Destaca por su limpieza y camas cómodas.",
-      "calificacion": 7.7,
+      "descripcion": "Hotel de 3 estrellas en zona tranquila, con terraza, aire acondicionado, wifi, jacuzzi, restaurante, bar y parqueo.",
+      "calificacion": 8.5,
       "url": "",
-      "telefono": "+51 62 332-000",
-      "activo": true
-    },
-    "307": {
-      "nombre": "Cabañas del Bosque - Huamalíes",
-      "direccion": "Carretera Huamalíes-Kotosh, Huamalíes",
-      "ciudad": "Huamalíes",
-      "coordenadas": "-9.3000, -76.5000",
-      "tipo": "hotel",
-      "descripcion": "Cabañas rústicas con vistas al Parque Nacional Huascarán. Ideal para trekking y observación de aves.",
-      "calificacion": 4.6,
-      "url": "",
-      "telefono": "+51 987 123 456",
-      "activo": true
-    },
-    "308": {
-      "nombre": "Hostal Dos de Mayo Histórico",
-      "direccion": "Plaza Principal s/n, Dos de Mayo",
-      "ciudad": "Dos de Mayo",
-      "coordenadas": "-9.8000, -76.8000",
-      "tipo": "hotel",
-      "descripcion": "Hostal frente a la plaza principal. Ofrece conexión Wi-Fi básica y desayuno con productos locales.",
-      "calificacion": 4.0,
-      "url": "",
-      "telefono": "+51 63 451-000",
-      "activo": true
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/520890777.jpg?k=6cb6012e61db6ee1e719738d4f57bc05042a3aa5444acc3c95057f0b9bd484d7&o=",
+      "actividades": "WiFi, terraza, jacuzzi, restaurante, bar, parking",
+      "consejos": "Ideal para estancias relajadas fuera del bullicio.",
+      "keywords": [
+        "hotel",
+        "terraza",
+        "jacuzzi",
+        "tranquilo"
+      ],
+      "precio_rango": "$$",
+      "servicios": [
+        "wifi",
+        "terraza",
+        "jacuzzi",
+        "restaurante",
+        "bar",
+        "parking"
+      ],
+      "destacado": false
     },
     "309": {
-      "nombre": "Refugio Tomay Kichwa",
-      "direccion": "Margen del Río Marañón, La Unión",
-      "ciudad": "La Unión",
-      "coordenadas": "-9.1500, -76.2500",
+      "nombre": "Hotel Khon Wa Huánuco",
+      "direccion": "Jr. General Prado 820, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9300,-76.2420",
       "tipo": "hotel",
-      "descripcion": "Refugio ecológico con actividades de kayak y pesca. Habitaciones sencillas con hamacas y vista al río.",
-      "calificacion": 4.3,
+      "descripcion": "Pequeño hotel de 3 estrellas, con jardín, Wi‑Fi y recepción 24 h. Excelente puntuación por su atención.",
+      "calificacion": 10.0,
       "url": "",
-      "telefono": "+51 965 789 123",
-      "activo": true
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/03/11/7c/el-hotel-vista-de-las.jpg?w=900&h=500&s=1",
+      "actividades": "WiFi, jardín, recepción 24h",
+      "consejos": "Ideal para una estadía tranquila y bien ubicada.",
+      "keywords": [
+        "hotel",
+        "jardin",
+        "centrico",
+        "wifi"
+      ],
+      "precio_rango": "$$",
+      "servicios": [
+        "wifi",
+        "jardin",
+        "recepcion24h"
+      ],
+      "destacado": true
     }
   },
   "restaurantes": {
@@ -203,29 +245,26 @@
       "ciudad": "Huánuco",
       "coordenadas": "-9.9285,-76.2425",
       "tipo": "restaurante",
-      "descripcion": "Restaurante tradicional especializado en comida criolla huanuqueña. Famoso por sus platos típicos como el locro de gallina, la pachamanca y el inchicapi.",
+      "descripcion": "Restaurante tradicional especializado en comida criolla huanuqueña, famoso por locro de gallina, pachamanca e inchicapi.",
       "calificacion": 4.6,
       "url": "",
       "telefono": "+51 62 518-439",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/34/56/78/el-fogon-de-la-abuela.jpg?w=700&h=-1&s=1",
-      "actividades": "Comida criolla, platos típicos, ambiente familiar, música folclórica",
-      "consejos": "Probar el locro de gallina y la pachamanca. Ideal para almuerzo.",
+      "imagen": "https://scontent.fjau4-1.fna.fbcdn.net/v/t1.6435-9/67360953_2648993771786913_7852179448156651520_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeHBZaeIEP5Dgm1S2REfVbItBJveJ3VUuLwEm94ndVS4vMkdRhtpwcdPZP80NGETdQvSmkcbSKBvHEHA2gbJSoSt&_nc_ohc=JrJEFowtZOQQ7kNvwHklki1&_nc_oc=AdnXVBxs_8-yldgL2DNmvs4mnh1kf_H_nbOImKosxjBMICmzqTpG-osqHJ2GovhZXp4&_nc_zt=23&_nc_ht=scontent.fjau4-1.fna&_nc_gid=s9wVUYlv2A-Kzuncfn3KEA&oh=00_AfR4dfiPFYsbYX2clTVfFmHwTQNl0Jxv0V4WMgf2Cgg0QQ&oe=689D4BB5",
+      "actividades": "Comida criolla, ambiente familiar",
+      "consejos": "Probar el locro de gallina y la pachamanca; ideal para almuerzo.",
       "keywords": [
-        "restaurante",
         "criollo",
-        "tipico",
+        "huanuqueña",
         "locro",
-        "pachamanca",
-        "huanuqueña"
+        "pachamanca"
       ],
       "precio_rango": "$$",
       "cocina": "criolla",
       "especialidades": [
         "locro de gallina",
         "pachamanca",
-        "inchicapi",
-        "sopa de cabrito"
+        "inchicapi"
       ],
       "destacado": true
     },
@@ -234,29 +273,27 @@
       "direccion": "Jr. Dos de Mayo 1045, Huánuco",
       "ciudad": "Huánuco",
       "coordenadas": "-9.9298,-76.2398",
-      "tipo": "restaurante",
-      "descripcion": "Pizzería italiana con ambiente acogedor. Ofrece pizzas artesanales, pastas frescas y postres caseros. Popular entre jóvenes y familias.",
+      "tipo": "pizzería",
+      "descripcion": "Pizzería italiana con pizzas artesanales, pastas frescas y postres caseros.",
       "calificacion": 4.4,
       "url": "",
       "telefono": "+51 62 515-672",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/22/33/44/pizzeria-don-vito.jpg?w=700&h=-1&s=1",
-      "actividades": "Pizzas artesanales, pastas, ambiente familiar, delivery",
-      "consejos": "Las pizzas están muy buenas y los precios son razonables. Abierto hasta tarde.",
+      "imagen": "https://sommelier.com.pe/wp-content/uploads/donvito-1-640x404.png",
+      "actividades": "Pizzas, pastas, ambiente familiar, delivery",
+      "consejos": "Abierto hasta tarde; buenos precios.",
       "keywords": [
-        "pizzeria",
+        "pizza",
         "italiana",
         "pasta",
-        "pizza",
-        "familiar",
-        "delivery"
+        "familia"
       ],
       "precio_rango": "$$",
       "cocina": "italiana",
       "especialidades": [
-        "pizza margherita",
+        "margherita",
         "lasagna",
-        "spaghetti carbonara",
+        "carbonara",
         "tiramisu"
       ],
       "destacado": true
@@ -266,30 +303,25 @@
       "direccion": "Jr. Huallayco 545, Huánuco",
       "ciudad": "Huánuco",
       "coordenadas": "-9.9275,-76.2410",
-      "tipo": "restaurante",
-      "descripcion": "Chifa tradicional con más de 20 años sirviendo auténtica comida chino-peruana. Amplio local con ambiente familiar y precios accesibles.",
+      "tipo": "chifa",
+      "descripcion": "Chifa tradicional con más de 20 años sirviendo auténtica cocina chino-peruana.",
       "calificacion": 4.2,
       "url": "",
       "telefono": "+51 62 512-888",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/11/22/33/chifa-palacio-oro.jpg?w=700&h=-1&s=1",
-      "actividades": "Comida chifa, platos grandes, ambiente familiar, delivery",
-      "consejos": "Las porciones son generosas. Perfecto para compartir en grupo.",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3ZFapic_Lxd7HBv6vcXudP5rZrgNkgZYBww&s",
+      "actividades": "Comida chifa, porciones grandes, delivery",
+      "consejos": "Perfecto para compartir en grupo.",
       "keywords": [
         "chifa",
-        "chino",
-        "peruano",
-        "arroz chaufa",
-        "tallarín",
-        "familiar"
+        "chaufa",
+        "tallarín"
       ],
       "precio_rango": "$",
       "cocina": "chifa",
       "especialidades": [
         "arroz chaufa",
-        "tallarín saltado",
-        "wantán frito",
-        "pollo chi jau kay"
+        "tallarín saltado"
       ],
       "destacado": false
     },
@@ -299,29 +331,24 @@
       "ciudad": "Huánuco",
       "coordenadas": "-9.9320,-76.2385",
       "tipo": "restaurante",
-      "descripcion": "Restaurante especializado en comida tradicional de la sierra peruana. Conocido por sus guisos, sopas sustanciosas y carnes a la parrilla.",
+      "descripcion": "Especializado en comida tradicional serrana: guisos, sopas y carnes a la parrilla.",
       "calificacion": 4.3,
       "url": "",
       "telefono": "+51 62 517-234",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/45/67/89/la-olla-de-barro.jpg?w=700&h=-1&s=1",
-      "actividades": "Comida de la sierra, parrillas, sopas, ambiente rústico",
-      "consejos": "Excelente para probar comida tradicional andina. Ambiente acogedor.",
+      "imagen": "https://scontent.fjau4-1.fna.fbcdn.net/v/t39.30808-6/360102173_657736956417764_604753403374960524_n.png?_nc_cat=104&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEL-Yu3D_V5qQXfYax0FEUlymA0teiWPHfKYDS16JY8d0dsuUe7kbDo9tBjq2WU7mWPmvWqte3sq1U2ywNKbuAn&_nc_ohc=ijYg5HxKvvUQ7kNvwHAzfYo&_nc_oc=AdmfsHPY81DUhX3Dy9JAhplSTAnf5lePJiZS-CAEhR1DSHAiZhdor-XCeD7v6chGPOo&_nc_zt=23&_nc_ht=scontent.fjau4-1.fna&_nc_gid=4LdgNOB9DEpDqfYKbk3CWg&oh=00_AfT1HuZBOYQql3dV2NoAjaV6l_iB0OSuSedjrDZYrp5SlA&oe=687BA96B",
+      "actividades": "Parrillas, sopas, ambiente rústico",
+      "consejos": "Excelente para probar comida andina.",
       "keywords": [
-        "tradicional",
         "sierra",
         "guisos",
-        "parrilla",
-        "sopas",
-        "andino"
+        "parrilla"
       ],
       "precio_rango": "$$",
       "cocina": "andina",
       "especialidades": [
         "caldo de cabeza",
-        "seco de cabrito",
-        "anticuchos",
-        "parrillada"
+        "seco de cabrito"
       ],
       "destacado": true
     },
@@ -330,30 +357,25 @@
       "direccion": "Jr. Dámaso Beraún 890, Huánuco",
       "ciudad": "Huánuco",
       "coordenadas": "-9.9292,-76.2402",
-      "tipo": "restaurante",
-      "descripcion": "Café cultural que combina gastronomía con arte local. Ofrece cafés especiales, bocadillos, postres y exposiciones de artistas locales.",
+      "tipo": "cafetería",
+      "descripcion": "Café cultural que combina gastronomía con arte local y exposiciones rotativas.",
       "calificacion": 4.5,
       "url": "",
       "telefono": "+51 62 519-876",
       "activo": true,
-      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/56/78/90/cafe-cultural-kotosh.jpg?w=700&h=-1&s=1",
-      "actividades": "Café especialidad, arte local, WiFi, ambiente bohemio, postres caseros",
-      "consejos": "Perfecto para trabajar o estudiar. Tienen exposiciones de arte rotativas.",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoJs09mM0lFe1AIerGF839PFkZcgqNcCKEmQ&s",
+      "actividades": "Café de especialidad, arte, postres caseros",
+      "consejos": "Ideal para trabajar o estudiar.",
       "keywords": [
-        "cafe",
-        "cultural",
+        "café",
         "arte",
-        "bohemio",
-        "wifi",
-        "postres"
+        "bohemio"
       ],
       "precio_rango": "$",
-      "cocina": "cafe",
+      "cocina": "café",
       "especialidades": [
         "café huanuqueño",
-        "cheesecake",
-        "brownies",
-        "smoothies"
+        "brownies"
       ],
       "destacado": true
     },
@@ -361,28 +383,26 @@
       "nombre": "Yuraq Wasi Restobar",
       "direccion": "Jr. Las Garzas Mz G Lt 14, Huánuco",
       "ciudad": "Huánuco",
-      "coordenadas": "-9.9250, -76.2350",
-      "tipo": "restaurante",
-      "descripcion": "Cocina fusión peruano-andina con cócteles artesanales. Ambiente nocturno con música en vivo los fines de semana.",
+      "coordenadas": "-9.9250,-76.2350",
+      "tipo": "restobar",
+      "descripcion": "Cocina fusión peruano-andina con cócteles y música en vivo fines de semana.",
       "calificacion": 4.3,
       "url": "",
       "telefono": "+51 62 515-000",
       "activo": true,
-      "imagen": "",
+      "imagen": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/537915965.jpg?k=8bc4160fd2eacdccb153ba3adb03801410c7b9a78ae536e12431011845c3f4f1&o=&hp=1",
       "actividades": "Cócteles, tapas andinas, música en vivo",
-      "consejos": "Pruebe el lomo saltado con quinoa y el pisco sour de aguaymanto.",
+      "consejos": "Probar el ceviche de trucha y pisco sour local.",
       "keywords": [
         "fusión",
         "cócteles",
-        "música",
-        "andino"
+        "música"
       ],
       "precio_rango": "$$",
-      "cocina": "fusión peruana",
+      "cocina": "fusión",
       "especialidades": [
-        "Ceviche de trucha",
-        "Lomo saltado con quinoa",
-        "Pisco sour de frutas locales"
+        "ceviche de trucha",
+        "lomo saltado con quinoa"
       ],
       "destacado": true
     },
@@ -390,28 +410,26 @@
       "nombre": "Sazón de Huamalíes",
       "direccion": "Mercado Central, Huamalíes",
       "ciudad": "Huamalíes",
-      "coordenadas": "-9.3050, -76.5050",
+      "coordenadas": "-9.3050,-76.5050",
       "tipo": "restaurante",
-      "descripcion": "Cocina tradicional huamaliana en ambiente rústico. Especializado en papas nativas y carnes de la sierra.",
+      "descripcion": "Cocina tradicional huamaliana especializada en papas nativas y carnes de la sierra.",
       "calificacion": 4.5,
       "url": "",
       "telefono": "+51 987 654 321",
       "activo": true,
-      "imagen": "",
-      "actividades": "Platos típicos, mercado local",
-      "consejos": "No dejar de probar el caldo de cabeza con hierbas andinas.",
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/25/0e/6a/photo4jpg.jpg?w=1200&h=-1&s=1",
+      "actividades": "Platos típicos, ambiente de mercado",
+      "consejos": "No dejar de probar el caldo de cabeza con hierbas.",
       "keywords": [
-        "tradicional",
         "sierra",
         "papas nativas",
-        "mercado"
+        "tradicional"
       ],
       "precio_rango": "$",
       "cocina": "andina",
       "especialidades": [
-        "Caldo de cabeza",
-        "Pachamanca huamaliana",
-        "Trucha frita"
+        "caldo de cabeza",
+        "pachamanca huamaliana"
       ],
       "destacado": false
     },
@@ -419,28 +437,178 @@
       "nombre": "El Mirador de Dos de Mayo",
       "direccion": "Cerro San Francisco, Dos de Mayo",
       "ciudad": "Dos de Mayo",
-      "coordenadas": "-9.8020, -76.8050",
+      "coordenadas": "-9.8020,-76.8050",
       "tipo": "restaurante",
-      "descripcion": "Vistas panorámicas al valle. Especializado en parrilladas y chicharrones preparados en leña.",
+      "descripcion": "Vistas panorámicas al valle, especializado en parrilladas y chicharrón.",
       "calificacion": 4.2,
       "url": "",
       "telefono": "+51 63 450-000",
       "activo": true,
-      "imagen": "",
-      "actividades": "Parrilladas, chicharrones, vistas al valle",
-      "consejos": "Ideal para almuerzos con vista. Llegar temprano para conseguir mesa en la terraza.",
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/12/35/d1/el-jardin-de-emma-uno.jpg?w=600&h=-1&s=1",
+      "actividades": "Parrilladas, vistas al valle",
+      "consejos": "Llegar temprano para mesa en terraza.",
       "keywords": [
         "parrilla",
-        "chicharrón",
         "mirador",
-        "carnes"
+        "criolla"
       ],
       "precio_rango": "$$",
       "cocina": "criolla",
       "especialidades": [
-        "Chicharrón de cerdo",
-        "Parrillada mixta",
-        "Humitas"
+        "chicharrón de cerdo",
+        "humitas"
+      ],
+      "destacado": true
+    },
+    "408": {
+      "nombre": "Botanika Food Park",
+      "direccion": "Zona central, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9290,-76.2410",
+      "tipo": "food park",
+      "descripcion": "Food‑trucks con comida multicultural y excelente coctelería.",
+      "calificacion": 5.0,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/f9/45/c3/garden.jpg?w=900&h=500&s=1",
+      "actividades": "Food‑trucks, multicultural, cócteles",
+      "consejos": "Ambiente al aire libre ideal para grupos.",
+      "keywords": [
+        "food park",
+        "multicultural",
+        "cocteles"
+      ],
+      "precio_rango": "$$",
+      "cocina": "fusión",
+      "especialidades": [],
+      "destacado": true
+    },
+    "409": {
+      "nombre": "Trapiche House",
+      "direccion": "Jr. Dámaso Beraún 401, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9293,-76.2412",
+      "tipo": "restobar",
+      "descripcion": "Pub con parrilla al carbón y ambiente casual.",
+      "calificacion": 4.9,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/fa/5b/a2/img-20200222-193920-largejpg.jpg?w=900&h=500&s=1",
+      "actividades": "Parrilla, pub, bebidas",
+      "consejos": "Ideal para noche con amigos.",
+      "keywords": [
+        "pub",
+        "parrilla"
+      ],
+      "precio_rango": "$$",
+      "cocina": "criolla/fusión",
+      "especialidades": [
+        "parrillada",
+        "ceviche"
+      ],
+      "destacado": true
+    },
+    "410": {
+      "nombre": "La Piazzetta",
+      "direccion": "Jr. Dámaso Beraún 845, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9294,-76.2408",
+      "tipo": "pizzería",
+      "descripcion": "Pizzería italiana con ambiente familiar y reserva previa.",
+      "calificacion": 4.0,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://lapiazzetta.com.pe/wp-content/uploads/2020/06/Sancho3-1024x768.jpg",
+      "actividades": "Pizzas, pastas",
+      "consejos": "Perfecto para cenas familiares.",
+      "keywords": [
+        "pizza",
+        "italiana"
+      ],
+      "precio_rango": "$$",
+      "cocina": "italiana",
+      "especialidades": [
+        "pizza",
+        "pasta"
+      ],
+      "destacado": true
+    },
+    "411": {
+      "nombre": "Pizzería Don Sancho",
+      "direccion": "Jr. General Prado 645, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9296,-76.2420",
+      "tipo": "pizzería",
+      "descripcion": "Pizzería peruano‑italiana con servicio delivery.",
+      "calificacion": 3.6,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nL1g4cjB1OGs3UWlHZzhubWlCVy1wWnciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjY0MCwiaGVpZ2h0Ijo2NDAsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsInRvRm9ybWF0IjogIndlYnAifX0=",
+      "actividades": "Pizzas, delivery",
+      "consejos": "Buena opción para pedido a domicilio.",
+      "keywords": [
+        "pizza",
+        "delivery"
+      ],
+      "precio_rango": "$",
+      "cocina": "italiana",
+      "especialidades": [
+        "pizza"
+      ],
+      "destacado": false
+    },
+    "412": {
+      "nombre": "Café San Ignacio",
+      "direccion": "Jr. Bolívar 308, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9293,-76.2395",
+      "tipo": "cafetería",
+      "descripcion": "Café acogedor con repostería y platos regionales.",
+      "calificacion": 4.3,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://s3.us-east-1.amazonaws.com/ca-webprod/media/2e6717d4-f050-4b66-98d8-b8543b81d315.webp",
+      "actividades": "Café, postres, ambiente cultural",
+      "consejos": "Perfecto para desayuno o merienda.",
+      "keywords": [
+        "café",
+        "cultural"
+      ],
+      "precio_rango": "$",
+      "cocina": "café",
+      "especialidades": [
+        "café",
+        "cheesecake"
+      ],
+      "destacado": true
+    },
+    "413": {
+      "nombre": "Facucho",
+      "direccion": "Jr. Dos de Mayo 871, Huánuco",
+      "ciudad": "Huánuco",
+      "coordenadas": "-9.9297,-76.2397",
+      "tipo": "comida rápida",
+      "descripcion": "Sánguches y comida rápida peruana muy apreciada por locales.",
+      "calificacion": 4.4,
+      "url": "",
+      "telefono": "",
+      "activo": true,
+      "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/3e/6d/98/img-20181103-181422-largejpg.jpg?w=400&h=300&s=1",
+      "actividades": "Sánguches, comida rápida",
+      "consejos": "Recomendado por sus sánguches locales.",
+      "keywords": [
+        "rápido",
+        "sánguches"
+      ],
+      "precio_rango": "$",
+      "cocina": "peruana",
+      "especialidades": [
+        "sánguches"
       ],
       "destacado": true
     }
